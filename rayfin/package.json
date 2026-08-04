@@ -1,0 +1,21 @@
+{
+  "name": "rayfin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@microsoft/rayfin-client": "^1.33.2",
+    "@microsoft/rayfin-core": "^1.33.2",
+    "@microsoft/rayfin-data": "^1.33.2"
+  },
+  "devDependencies": {
+    "@microsoft/rayfin-cli": "^1.23.0"
+  }
+}

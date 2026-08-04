@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Signing in…</title>
+  </head>
+  <body>
+    <!--
+      Redirect target for MSAL popup sign-in.
+
+      It must stay empty. The popup only exists to carry the auth response back to the window
+      that opened it, which reads the response straight off this page's URL. Loading the real
+      app here would start a second MSAL instance that consumes the response first, using a
+      cache that never held the original request — which fails with no_token_request_cache_error.
+    -->
+    Signing in…
+  </body>
+</html>

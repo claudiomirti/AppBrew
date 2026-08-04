@@ -1,0 +1,30 @@
+id: appbrew
+name: AppBrew
+version: 1.0.20
+services:
+  auth:
+    enabled: true
+    customClaims:
+      app_version: 1.0.0
+    scopes:
+      - read:data
+      - write:data
+    password:
+      enabled: false
+    allowedRedirectUris:
+      - http://localhost:5173
+      - https://palm-dune-d69d5b5375-westeurope.webapp.fabricapps.net
+    fabric:
+      enabled: true
+  data:
+    enabled: true
+    dialect: mssql
+  staticHosting:
+    enabled: true
+    folder: frontend/dist
+    buildCommand: npm --prefix frontend run build
+    indexDocument: index.html
+  storage:
+    enabled: false
+  functions:
+    enabled: false

@@ -1,0 +1,430 @@
+{
+  "name": "MybrewOnto",
+  "itemId": "6b19ceb0-32d4-411e-8221-cf2940fc07ca",
+  "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+  "lakehouse": "mybrew_lakehouse",
+  "entities": [
+    {
+      "id": "116313263396477",
+      "name": "dim_product",
+      "namespaceType": "Imported",
+      "idParts": [
+        "product_id"
+      ],
+      "sourceTable": "dim_product",
+      "properties": [
+        {
+          "name": "product_id",
+          "valueType": "String",
+          "sourceColumn": "product_id"
+        },
+        {
+          "name": "product_name",
+          "valueType": "String",
+          "sourceColumn": "product_name"
+        },
+        {
+          "name": "category",
+          "valueType": "String",
+          "sourceColumn": "category"
+        },
+        {
+          "name": "price_gbp",
+          "valueType": "Double",
+          "sourceColumn": "price_gbp"
+        },
+        {
+          "name": "is_seasonal",
+          "valueType": "Boolean",
+          "sourceColumn": "is_seasonal"
+        },
+        {
+          "name": "serve_temp",
+          "valueType": "String",
+          "sourceColumn": "serve_temp"
+        }
+      ]
+    },
+    {
+      "id": "37246622810182",
+      "name": "identity_match",
+      "namespaceType": "Imported",
+      "idParts": [],
+      "sourceTable": "identity_match",
+      "properties": [
+        {
+          "name": "loyalty_id",
+          "valueType": "String",
+          "sourceColumn": "loyalty_id"
+        },
+        {
+          "name": "impression_id",
+          "valueType": "String",
+          "sourceColumn": "impression_id"
+        },
+        {
+          "name": "match_confidence",
+          "valueType": "Double",
+          "sourceColumn": "match_confidence"
+        },
+        {
+          "name": "match_method",
+          "valueType": "String",
+          "sourceColumn": "match_method"
+        }
+      ]
+    },
+    {
+      "id": "192647598411406",
+      "name": "dim_customer",
+      "namespaceType": "Imported",
+      "idParts": [
+        "customer_id"
+      ],
+      "sourceTable": "dim_customer",
+      "properties": [
+        {
+          "name": "customer_id",
+          "valueType": "String",
+          "sourceColumn": "customer_id"
+        },
+        {
+          "name": "name",
+          "valueType": "String",
+          "sourceColumn": "name"
+        },
+        {
+          "name": "tier",
+          "valueType": "String",
+          "sourceColumn": "tier"
+        },
+        {
+          "name": "tier_points",
+          "valueType": "BigInt",
+          "sourceColumn": "tier_points"
+        },
+        {
+          "name": "city",
+          "valueType": "String",
+          "sourceColumn": "city"
+        },
+        {
+          "name": "country",
+          "valueType": "String",
+          "sourceColumn": "country"
+        },
+        {
+          "name": "opted_in",
+          "valueType": "Boolean",
+          "sourceColumn": "opted_in"
+        },
+        {
+          "name": "last_visit",
+          "valueType": "DateTime",
+          "sourceColumn": "last_visit"
+        }
+      ]
+    },
+    {
+      "id": "214245553422709",
+      "name": "AdImpression_Event",
+      "namespaceType": "Custom",
+      "idParts": [],
+      "sourceTable": null,
+      "properties": []
+    },
+    {
+      "id": "195480531039914",
+      "name": "dim_store",
+      "namespaceType": "Imported",
+      "idParts": [
+        "store_id"
+      ],
+      "sourceTable": "dim_store",
+      "properties": [
+        {
+          "name": "store_id",
+          "valueType": "String",
+          "sourceColumn": "store_id"
+        },
+        {
+          "name": "store_name",
+          "valueType": "String",
+          "sourceColumn": "store_name"
+        },
+        {
+          "name": "city",
+          "valueType": "String",
+          "sourceColumn": "city"
+        },
+        {
+          "name": "region",
+          "valueType": "String",
+          "sourceColumn": "region"
+        },
+        {
+          "name": "country",
+          "valueType": "String",
+          "sourceColumn": "country"
+        },
+        {
+          "name": "lat",
+          "valueType": "Double",
+          "sourceColumn": "lat"
+        },
+        {
+          "name": "lon",
+          "valueType": "Double",
+          "sourceColumn": "lon"
+        }
+      ]
+    },
+    {
+      "id": "276195414673117",
+      "name": "fact_impression",
+      "namespaceType": "Imported",
+      "idParts": [],
+      "sourceTable": "fact_impression",
+      "properties": [
+        {
+          "name": "impression_id",
+          "valueType": "String",
+          "sourceColumn": "impression_id"
+        },
+        {
+          "name": "campaign_id",
+          "valueType": "String",
+          "sourceColumn": "campaign_id"
+        },
+        {
+          "name": "customer_id",
+          "valueType": "String",
+          "sourceColumn": "customer_id"
+        },
+        {
+          "name": "publisher",
+          "valueType": "String",
+          "sourceColumn": "publisher"
+        },
+        {
+          "name": "creative_id",
+          "valueType": "String",
+          "sourceColumn": "creative_id"
+        },
+        {
+          "name": "clicked",
+          "valueType": "Boolean",
+          "sourceColumn": "clicked"
+        },
+        {
+          "name": "converted",
+          "valueType": "Boolean",
+          "sourceColumn": "converted"
+        },
+        {
+          "name": "spend_amount_gbp",
+          "valueType": "Double",
+          "sourceColumn": "spend_amount_gbp"
+        },
+        {
+          "name": "timestamp",
+          "valueType": "DateTime",
+          "sourceColumn": "timestamp"
+        }
+      ]
+    },
+    {
+      "id": "237609305681636",
+      "name": "dim_campaign",
+      "namespaceType": "Imported",
+      "idParts": [
+        "campaign_id"
+      ],
+      "sourceTable": "dim_campaign",
+      "properties": [
+        {
+          "name": "campaign_id",
+          "valueType": "String",
+          "sourceColumn": "campaign_id"
+        },
+        {
+          "name": "campaign_name",
+          "valueType": "String",
+          "sourceColumn": "campaign_name"
+        },
+        {
+          "name": "channel",
+          "valueType": "String",
+          "sourceColumn": "channel"
+        },
+        {
+          "name": "publisher",
+          "valueType": "String",
+          "sourceColumn": "publisher"
+        },
+        {
+          "name": "segment_target",
+          "valueType": "String",
+          "sourceColumn": "segment_target"
+        },
+        {
+          "name": "start_date",
+          "valueType": "DateTime",
+          "sourceColumn": "start_date"
+        },
+        {
+          "name": "end_date",
+          "valueType": "DateTime",
+          "sourceColumn": "end_date"
+        },
+        {
+          "name": "budget_gbp",
+          "valueType": "BigInt",
+          "sourceColumn": "budget_gbp"
+        }
+      ]
+    },
+    {
+      "id": "77219337030061",
+      "name": "dim_weather",
+      "namespaceType": "Imported",
+      "idParts": [],
+      "sourceTable": "dim_weather",
+      "properties": [
+        {
+          "name": "city",
+          "valueType": "String",
+          "sourceColumn": "city"
+        },
+        {
+          "name": "date",
+          "valueType": "DateTime",
+          "sourceColumn": "date"
+        },
+        {
+          "name": "temp_c",
+          "valueType": "BigInt",
+          "sourceColumn": "temp_c"
+        },
+        {
+          "name": "condition",
+          "valueType": "String",
+          "sourceColumn": "condition"
+        },
+        {
+          "name": "precip_mm",
+          "valueType": "Double",
+          "sourceColumn": "precip_mm"
+        }
+      ]
+    },
+    {
+      "id": "156927676666976",
+      "name": "fact_transaction",
+      "namespaceType": "Imported",
+      "idParts": [],
+      "sourceTable": "fact_transaction",
+      "properties": [
+        {
+          "name": "txn_id",
+          "valueType": "String",
+          "sourceColumn": "txn_id"
+        },
+        {
+          "name": "customer_id",
+          "valueType": "String",
+          "sourceColumn": "customer_id"
+        },
+        {
+          "name": "store_id",
+          "valueType": "String",
+          "sourceColumn": "store_id"
+        },
+        {
+          "name": "campaign_id",
+          "valueType": "String",
+          "sourceColumn": "campaign_id"
+        },
+        {
+          "name": "product_id",
+          "valueType": "String",
+          "sourceColumn": "product_id"
+        },
+        {
+          "name": "amount_gbp",
+          "valueType": "Double",
+          "sourceColumn": "amount_gbp"
+        },
+        {
+          "name": "timestamp",
+          "valueType": "DateTime",
+          "sourceColumn": "timestamp"
+        },
+        {
+          "name": "Total_Spend",
+          "valueType": "BigInt",
+          "sourceColumn": null
+        },
+        {
+          "name": "Revenue",
+          "valueType": "Double",
+          "sourceColumn": null
+        },
+        {
+          "name": "ROAS",
+          "valueType": "Double",
+          "sourceColumn": null
+        },
+        {
+          "name": "Conversion_Rate",
+          "valueType": "BigInt",
+          "sourceColumn": null
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "991914791021663196",
+      "name": "targets",
+      "sourceId": "237609305681636",
+      "targetId": "192647598411406"
+    },
+    {
+      "id": "988924128448366393",
+      "name": "viewed",
+      "sourceId": "192647598411406",
+      "targetId": "276195414673117"
+    },
+    {
+      "id": "990802294359636458",
+      "name": "exposed_to",
+      "sourceId": "192647598411406",
+      "targetId": "237609305681636"
+    },
+    {
+      "id": "951621140577680168",
+      "name": "places",
+      "sourceId": "192647598411406",
+      "targetId": "156927676666976"
+    },
+    {
+      "id": "951702915362377146",
+      "name": "generates",
+      "sourceId": "237609305681636",
+      "targetId": "276195414673117"
+    },
+    {
+      "id": "951648222423813852",
+      "name": "occurs_at",
+      "sourceId": "156927676666976",
+      "targetId": "195480531039914"
+    },
+    {
+      "id": "951675728760247337",
+      "name": "purchases",
+      "sourceId": "156927676666976",
+      "targetId": "116313263396477"
+    }
+  ]
+}
