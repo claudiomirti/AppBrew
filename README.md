@@ -6,6 +6,8 @@ A React SPA deployed as a [Rayfin](https://www.npmjs.com/package/@microsoft/rayf
 static app inside a Fabric workspace. It reads live event streams from a Fabric
 Eventhouse, calls a Fabric data agent over MCP, and pulls competitor news from
 Microsoft Web IQ.
+<img width="3655" height="2012" alt="Screenshot 2026-07-31 145311" src="https://github.com/user-attachments/assets/dc7e8d78-26c1-4d0a-83f5-3c581a116b1c" />
+
 
 > **Demo project.** The data is simulated and the numbers are illustrative — see
 > [Known issues](#known-issues) before showing any figure to an audience.
