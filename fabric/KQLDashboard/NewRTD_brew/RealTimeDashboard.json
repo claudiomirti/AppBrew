@@ -1,0 +1,74 @@
+{
+  "autoRefresh": {
+    "enabled": false
+  },
+  "baseQueries": [],
+  "tiles": [
+    {
+      "id": "4d0af3cf-4080-43a8-8215-3aaeb44592bd",
+      "queryRef": {
+        "kind": "query",
+        "queryId": "be89d4dd-8a7d-46c9-bd2d-51c043c2aeab"
+      },
+      "title": "AdImpressions Table Preview",
+      "visualType": "table",
+      "pageId": "bb6f2c91-0be8-49f9-8933-6a990c131617",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      },
+      "visualOptions": {}
+    }
+  ],
+  "dataSources": [
+    {
+      "id": "22cbde65-5590-4518-82c6-3d88d27dc486",
+      "kind": "kusto-trident",
+      "clusterUri": "https://trd-t1s1uap7p3xkuvdx9s.z8.kusto.fabric.microsoft.com",
+      "databaseArtifactId": "d8446837-44f8-4c1a-bff6-474de9e54fcd",
+      "database": "d8446837-44f8-4c1a-bff6-474de9e54fcd",
+      "workspace": "00000000-0000-0000-0000-000000000000",
+      "name": "mybrew_eventhouse"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "bb6f2c91-0be8-49f9-8933-6a990c131617"
+    }
+  ],
+  "parameters": [
+    {
+      "kind": "duration",
+      "id": "0f0e4ea3-bc36-4e95-a7f0-6514711f2fba",
+      "displayName": "Time range",
+      "description": "",
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "defaultValue": {
+        "kind": "dynamic",
+        "count": 1,
+        "unit": "hours"
+      },
+      "showOnPages": {
+        "kind": "all"
+      }
+    }
+  ],
+  "queries": [
+    {
+      "id": "be89d4dd-8a7d-46c9-bd2d-51c043c2aeab",
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "22cbde65-5590-4518-82c6-3d88d27dc486"
+      },
+      "usedVariables": [],
+      "text": "['AdImpressions'] | take 10"
+    }
+  ],
+  "embeddedApps": [],
+  "flavor": "RTDashboard_Regular",
+  "schema_version": 80
+}

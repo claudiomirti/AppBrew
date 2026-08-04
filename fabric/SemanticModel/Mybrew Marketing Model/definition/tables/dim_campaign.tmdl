@@ -1,0 +1,85 @@
+table dim_campaign
+	lineageTag: 4063f669-371b-48d2-bcb4-aea86f159ac1
+	sourceLineageTag: [dbo].[dim_campaign]
+
+	column campaign_id
+		dataType: string
+		lineageTag: aa03ec08-4060-41c0-92be-89248accb414
+		sourceLineageTag: campaign_id
+		summarizeBy: none
+		sourceColumn: campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_name
+		dataType: string
+		lineageTag: 7ca4de02-b8e5-4e74-a653-a664d989ee7b
+		sourceLineageTag: campaign_name
+		summarizeBy: none
+		sourceColumn: campaign_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel
+		dataType: string
+		lineageTag: 64b925d2-a6a7-4820-be1f-76d05368e7f1
+		sourceLineageTag: channel
+		summarizeBy: none
+		sourceColumn: channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column publisher
+		dataType: string
+		lineageTag: 2545a8ef-7623-4287-b0f6-d31c0b1e6bb8
+		sourceLineageTag: publisher
+		summarizeBy: none
+		sourceColumn: publisher
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment_target
+		dataType: string
+		lineageTag: 7a60b52e-b0c9-4f07-945c-d1f7e40c47ff
+		sourceLineageTag: segment_target
+		summarizeBy: none
+		sourceColumn: segment_target
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1efe9dd3-4018-4066-9760-5244b41e5d38
+		sourceLineageTag: start_date
+		summarizeBy: none
+		sourceColumn: start_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column end_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3ed05b16-f65d-426c-afb7-9963be53f692
+		sourceLineageTag: end_date
+		summarizeBy: none
+		sourceColumn: end_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column budget_gbp
+		dataType: int64
+		formatString: 0
+		lineageTag: a6b8e6a2-afc6-48fc-ac3b-d6fe73be45da
+		sourceLineageTag: budget_gbp
+		summarizeBy: none
+		sourceColumn: budget_gbp
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_campaign = entity
+		mode: directLake
+		source
+			entityName: dim_campaign
+			expressionSource: 'DirectLake - mybrew_lakehouse'
+

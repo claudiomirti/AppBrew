@@ -1,0 +1,59 @@
+table dim_weather
+	lineageTag: 663a0fcf-1030-484a-a0cb-97e37d607097
+	sourceLineageTag: [dbo].[dim_weather]
+
+	column city
+		dataType: string
+		lineageTag: b6b7b85a-a25e-495d-a933-1eda577eafe8
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3c4b6fb8-6f4c-4045-a378-8908afd1e87a
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column temp_c
+		dataType: int64
+		formatString: 0
+		lineageTag: e9acd9f2-6d83-4e0c-8a97-e8bf9220b34f
+		sourceLineageTag: temp_c
+		summarizeBy: sum
+		sourceColumn: temp_c
+
+		annotation SummarizationSetBy = Automatic
+
+	column condition
+		dataType: string
+		lineageTag: b4ea79b1-30a4-49a3-ba7a-e2e1d7a034d4
+		sourceLineageTag: condition
+		summarizeBy: none
+		sourceColumn: condition
+
+		annotation SummarizationSetBy = Automatic
+
+	column precip_mm
+		dataType: double
+		lineageTag: b0890598-e7e1-4526-b3a1-9255dc2c2f5f
+		sourceLineageTag: precip_mm
+		summarizeBy: sum
+		sourceColumn: precip_mm
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim_weather = entity
+		mode: directLake
+		source
+			entityName: dim_weather
+			expressionSource: 'DirectLake - mybrew_lakehouse'
+

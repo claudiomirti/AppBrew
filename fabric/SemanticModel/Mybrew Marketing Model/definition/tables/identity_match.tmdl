@@ -1,0 +1,48 @@
+table identity_match
+	lineageTag: 5d92124d-68a6-455c-8c44-f39ab8374e11
+	sourceLineageTag: [dbo].[identity_match]
+
+	column loyalty_id
+		dataType: string
+		lineageTag: 02f66047-0409-4c10-a763-f3367bc0da57
+		sourceLineageTag: loyalty_id
+		summarizeBy: none
+		sourceColumn: loyalty_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column impression_id
+		dataType: string
+		lineageTag: 0f6ebf1e-2cfe-4da0-ab16-bf18f1826238
+		sourceLineageTag: impression_id
+		summarizeBy: none
+		sourceColumn: impression_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column match_confidence
+		dataType: double
+		lineageTag: a5a47335-4577-46e3-ac03-09e6e3718df6
+		sourceLineageTag: match_confidence
+		summarizeBy: sum
+		sourceColumn: match_confidence
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column match_method
+		dataType: string
+		lineageTag: 8eb322d0-fd04-4bff-a7af-fc51b723710d
+		sourceLineageTag: match_method
+		summarizeBy: none
+		sourceColumn: match_method
+
+		annotation SummarizationSetBy = Automatic
+
+	partition identity_match = entity
+		mode: directLake
+		source
+			entityName: identity_match
+			expressionSource: 'DirectLake - mybrew_lakehouse'
+

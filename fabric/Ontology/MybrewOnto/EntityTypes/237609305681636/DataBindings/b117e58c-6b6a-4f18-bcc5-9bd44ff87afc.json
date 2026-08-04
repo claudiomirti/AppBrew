@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "b117e58c-6b6a-4f18-bcc5-9bd44ff87afc",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "campaign_id",
+        "targetPropertyId": "951241381145754430"
+      },
+      {
+        "sourceColumnName": "campaign_name",
+        "targetPropertyId": "951241413330056034"
+      },
+      {
+        "sourceColumnName": "channel",
+        "targetPropertyId": "951241432606231781"
+      },
+      {
+        "sourceColumnName": "publisher",
+        "targetPropertyId": "951241460678449205"
+      },
+      {
+        "sourceColumnName": "segment_target",
+        "targetPropertyId": "951241480798372199"
+      },
+      {
+        "sourceColumnName": "start_date",
+        "targetPropertyId": "951241506714254801"
+      },
+      {
+        "sourceColumnName": "end_date",
+        "targetPropertyId": "951241527431712951"
+      },
+      {
+        "sourceColumnName": "budget_gbp",
+        "targetPropertyId": "951241554927285904"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+      "itemId": "4084ce1f-b97f-4949-81a9-755f32d1f5df",
+      "sourceTableName": "dim_campaign",
+      "sourceSchema": null
+    }
+  }
+}

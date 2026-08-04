@@ -1,0 +1,67 @@
+table dim_product
+	lineageTag: 0a4c8d81-cb48-4838-b565-0044f3b1c6f9
+	sourceLineageTag: [dbo].[dim_product]
+
+	column product_id
+		dataType: string
+		lineageTag: d7146855-8d6f-4f0b-bf18-75eaa2a619e7
+		sourceLineageTag: product_id
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: 1b6ea0e3-3926-4586-af75-9256b40a54e3
+		sourceLineageTag: product_name
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 917ead38-27ba-4ec9-a8ee-e16528fa7869
+		sourceLineageTag: category
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_gbp
+		dataType: double
+		lineageTag: f4b022a8-d090-4742-aa83-5a8a33bd0d96
+		sourceLineageTag: price_gbp
+		summarizeBy: none
+		sourceColumn: price_gbp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_seasonal
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 34d5d586-cfe3-4d4c-a253-38a2490823c0
+		sourceLineageTag: is_seasonal
+		summarizeBy: none
+		sourceColumn: is_seasonal
+
+		annotation SummarizationSetBy = Automatic
+
+	column serve_temp
+		dataType: string
+		lineageTag: 19d67b88-085c-44c9-b2cf-6dccc1e1f0a9
+		sourceLineageTag: serve_temp
+		summarizeBy: none
+		sourceColumn: serve_temp
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_product = entity
+		mode: directLake
+		source
+			entityName: dim_product
+			expressionSource: 'DirectLake - mybrew_lakehouse'
+

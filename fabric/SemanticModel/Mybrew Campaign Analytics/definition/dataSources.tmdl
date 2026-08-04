@@ -1,0 +1,4 @@
+dataSource RowDataSource = provider
+	connectionString: Provider=Microsoft.Data.SqlClient; Application Name=Push Data Service; Push Data Service Version=V2
+	impersonationMode: impersonateCurrentUser
+

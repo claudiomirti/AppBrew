@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "04_RT_Eventstream_Simulator",
+    "description": "RT simulator publishing via mybrew_rt_eventstream (Custom Endpoint) into mybrew_eventhouse KQL DB; same dims/schemas as 03; infinite loop until interrupted."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "00000000-0000-0000-0000-000000000000"
+  }
+}

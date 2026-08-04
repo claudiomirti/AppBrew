@@ -1,0 +1,36 @@
+table CustomerSegment
+
+	column tier
+		dataType: string
+		sourceColumn: 8166b40878ed4d1da50f2bfe5a5fa2cc
+
+	column city
+		dataType: string
+		sourceColumn: 09a4896fb67e499aa9c443aca521a034
+
+	column segment
+		dataType: string
+		sourceColumn: 441e7f5449594b00a6227e894c67f577
+
+	column customer_count
+		dataType: int64
+		sourceColumn: 3fd8fb918ee74c0da1fa9726938c36b3
+
+	column avg_spend
+		dataType: double
+		sourceColumn: 128bb8b31ca04574bc667c777da547b5
+
+	column conversion_rate
+		dataType: double
+		sourceColumn: 35a840b20f4843fdb614bcf423c9d406
+
+	partition CustomerSegment = query
+		mode: directQuery
+		source
+			query = SELECT * FROM [dfd499af-2553-478d-896d-57de4ffa00bc_2a5f5ce1c4434caaa66614a5df013ad4]
+			dataSource: RowDataSource
+
+	annotation RestaTableId = dfd499af-2553-478d-896d-57de4ffa00bc_2a5f5ce1c4434caaa66614a5df013ad4
+
+	annotation RestaTableRetentionPolicy = 0
+

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "barchart1",
+  "position": {
+    "x": 494.9235346312438,
+    "y": 264.86564161517464,
+    "z": 4000,
+    "height": 339.02802126742353,
+    "width": 464.99295370322039
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CampaignPerformance"
+                    }
+                  },
+                  "Property": "campaign_name"
+                }
+              },
+              "queryRef": "CampaignPerformance.campaign_name",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CampaignPerformance"
+                    }
+                  },
+                  "Property": "publisher"
+                }
+              },
+              "queryRef": "CampaignPerformance.publisher"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CampaignPerformance"
+                        }
+                      },
+                      "Property": "revenue_gbp"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(CampaignPerformance.revenue_gbp)"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "69908a9ab3b2d9e4705f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CampaignPerformance"
+              }
+            },
+            "Property": "campaign_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8d143eda2db9b038fada",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CampaignPerformance"
+                  }
+                },
+                "Property": "revenue_gbp"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7c53d42c70eda495bab9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CampaignPerformance"
+              }
+            },
+            "Property": "publisher"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

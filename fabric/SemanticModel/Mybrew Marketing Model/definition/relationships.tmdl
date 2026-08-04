@@ -1,0 +1,16 @@
+relationship daeb8727-4f66-381d-332a-769d940025d4
+	fromColumn: fact_transaction.customer_id
+	toColumn: dim_customer.customer_id
+
+relationship 92db9f50-f86b-0943-a360-2c3e427986d1
+	fromColumn: fact_transaction.store_id
+	toColumn: dim_store.store_id
+
+relationship 6c282740-982c-dc40-5830-8ce4034b8c8d
+	fromColumn: fact_transaction.product_id
+	toColumn: dim_product.product_id
+
+relationship 58009925-665e-5ee0-e5f4-97ef8eac8e69
+	fromColumn: fact_impression.campaign_id
+	toColumn: dim_campaign.campaign_id
+

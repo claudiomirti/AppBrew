@@ -1,0 +1,85 @@
+table dim_customer
+	lineageTag: cf653a59-f3e6-4a73-80a2-24f87a60731d
+	sourceLineageTag: [dbo].[dim_customer]
+
+	column customer_id
+		dataType: string
+		lineageTag: e7b11839-7827-4743-a24b-3b9723262dcb
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: d9b911a4-8f66-42d1-9e63-a2c0f13c0481
+		sourceLineageTag: name
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column tier
+		dataType: string
+		lineageTag: 2e50cc43-ce42-4e4c-b12b-ddacafe706aa
+		sourceLineageTag: tier
+		summarizeBy: none
+		sourceColumn: tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column tier_points
+		dataType: int64
+		formatString: 0
+		lineageTag: 6da71caf-5aff-430e-9f47-a46d7c3987ec
+		sourceLineageTag: tier_points
+		summarizeBy: none
+		sourceColumn: tier_points
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 8f27b75d-a05e-45a2-a5cd-b77a3d8ec0b6
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 2d6efd80-14d3-497c-8c95-5d5b47455870
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column opted_in
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 10e55894-c315-4380-95b8-b8c906ccacbf
+		sourceLineageTag: opted_in
+		summarizeBy: none
+		sourceColumn: opted_in
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_visit
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 74bf6971-f4d8-4835-973f-015df6c7bf81
+		sourceLineageTag: last_visit
+		summarizeBy: none
+		sourceColumn: last_visit
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_customer = entity
+		mode: directLake
+		source
+			entityName: dim_customer
+			expressionSource: 'DirectLake - mybrew_lakehouse'
+

@@ -95,6 +95,11 @@ Notebooks in the Fabric workspace generate the data:
   into the Eventstream, which lands them in the Eventhouse. Run
   `04_RT_Eventstream_Simulator` before the demo or Stream Analytics has no live feed.
 
+Every item definition in the workspace — notebooks, data agents, eventstreams,
+lakehouses, the ontology, KQL dashboards, reports and semantic models — is exported
+under [`fabric/`](fabric/README.md), which also lists the item IDs and explains how to
+re-import them.
+
 `docs/02_CMO_Simulator_Executive_Storyline.md` is a four-act narrative
 (SEE → DECIDE → ACT → PROVE) for presenting the simulator to a C-level audience,
 with a speaking script and anticipated questions. A `.docx` version sits beside it.
@@ -122,6 +127,7 @@ frontend/          React + Vite SPA
   src/lib/         Eventhouse, MSAL auth, Web IQ, sentiment, simulator
 rayfin/            Rayfin app config (rayfin.yml)
 docs/              executive storyline (md + docx)
+fabric/            exported Fabric item definitions (notebooks, agents, models…)
 ```
 
 ## Licence

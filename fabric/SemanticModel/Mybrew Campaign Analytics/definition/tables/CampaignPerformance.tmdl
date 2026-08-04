@@ -1,0 +1,61 @@
+table CampaignPerformance
+
+	measure CTR = DIVIDE(SUM(CampaignPerformance[clicks]), SUM(CampaignPerformance[impressions]), 0)
+
+	measure CPA = DIVIDE(SUM(CampaignPerformance[spend_gbp]), SUM(CampaignPerformance[conversions]), 0)
+
+	measure ROAS = DIVIDE(SUM(CampaignPerformance[revenue_gbp]), SUM(CampaignPerformance[spend_gbp]), 0)
+
+	measure 'Total Revenue' = SUM(CampaignPerformance[revenue_gbp])
+
+	measure 'Total Spend' = SUM(CampaignPerformance[spend_gbp])
+
+	measure ROI = DIVIDE(SUM(CampaignPerformance[revenue_gbp]) - SUM(CampaignPerformance[spend_gbp]), SUM(CampaignPerformance[spend_gbp]), 0)
+
+	column campaign_name
+		dataType: string
+		sourceColumn: c56b54a9ab894d33bad49221b69a09a7
+
+	column publisher
+		dataType: string
+		sourceColumn: 8fc8d40db8344a07a75c7cf94e3383a4
+
+	column region
+		dataType: string
+		sourceColumn: 1868c2d5aa994a56b6fd4d9c536dc264
+
+	column impressions
+		dataType: int64
+		sourceColumn: 6a28fb009d1443b4a94b1c71305f091f
+
+	column clicks
+		dataType: int64
+		sourceColumn: f2029de27178489d99a105aa1fd2678d
+
+	column conversions
+		dataType: int64
+		sourceColumn: 9ae05228eb304f2e9be9c53f989f3522
+
+	column spend_gbp
+		dataType: double
+		sourceColumn: d2e61a6b10574a5ebf787475a86464bb
+
+	column revenue_gbp
+		dataType: double
+		sourceColumn: ddd6dd040a0745bb846c784cd88478ed
+
+	column date
+		dataType: dateTime
+		formatString: mm/dd/yy hh:mm:ss AM/PM
+		sourceColumn: 95cd664239fc47428a4600c93410d182
+
+	partition CampaignPerformance = query
+		mode: directQuery
+		source
+			query = SELECT * FROM [dfd499af-2553-478d-896d-57de4ffa00bc_7b2d3be40067462fb8c48f3ccd186995]
+			dataSource: RowDataSource
+
+	annotation RestaTableId = dfd499af-2553-478d-896d-57de4ffa00bc_7b2d3be40067462fb8c48f3ccd186995
+
+	annotation RestaTableRetentionPolicy = 0
+

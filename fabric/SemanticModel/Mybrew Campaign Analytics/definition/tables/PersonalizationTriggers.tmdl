@@ -1,0 +1,37 @@
+table PersonalizationTriggers
+
+	column trigger_type
+		dataType: string
+		sourceColumn: 7bc60fc5775e4eccbe532beacd4ff5c6
+
+	column city
+		dataType: string
+		sourceColumn: 2e1bd9a42e2945f6bf3abd78399c6fb2
+
+	column triggers_fired
+		dataType: int64
+		sourceColumn: bdf9583adf5a4892845241c1ece6994c
+
+	column redemptions
+		dataType: int64
+		sourceColumn: d75dac8efab54ea8bc9a4fdc73e878a5
+
+	column revenue_generated
+		dataType: double
+		sourceColumn: 73d3554749104934a55508f90810502f
+
+	column timestamp
+		dataType: dateTime
+		formatString: mm/dd/yy hh:mm:ss AM/PM
+		sourceColumn: 11472872da0441a1bb3ce847512e8b1d
+
+	partition PersonalizationTriggers = query
+		mode: directQuery
+		source
+			query = SELECT * FROM [dfd499af-2553-478d-896d-57de4ffa00bc_a724608ff9c94a4d863f0d304175aeed]
+			dataSource: RowDataSource
+
+	annotation RestaTableId = dfd499af-2553-478d-896d-57de4ffa00bc_a724608ff9c94a4d863f0d304175aeed
+
+	annotation RestaTableRetentionPolicy = 0
+

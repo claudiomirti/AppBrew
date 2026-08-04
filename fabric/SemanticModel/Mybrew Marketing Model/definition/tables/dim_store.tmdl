@@ -1,0 +1,77 @@
+table dim_store
+	lineageTag: 37fa994b-5b3b-4304-8ccd-ec0e9037a1e2
+	sourceLineageTag: [dbo].[dim_store]
+
+	column store_id
+		dataType: string
+		lineageTag: f1310f27-a624-4ad0-8ff7-4d48188d9eab
+		sourceLineageTag: store_id
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_name
+		dataType: string
+		lineageTag: a1bcfb85-6a19-40d7-900d-bb9e8dd0cb86
+		sourceLineageTag: store_name
+		summarizeBy: none
+		sourceColumn: store_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 980629f4-abf6-4a9b-8079-fcf886150b06
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 8d4f0699-9f28-48ea-a866-e25e1a5d26f9
+		sourceLineageTag: region
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: fea4f42d-52f2-41a9-b0e5-416dc86dbe8e
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column lat
+		dataType: double
+		lineageTag: 39e338ea-d166-471e-8176-5537ecd2c5ba
+		sourceLineageTag: lat
+		summarizeBy: none
+		sourceColumn: lat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lon
+		dataType: double
+		lineageTag: 3963d4d7-0add-43ab-8e17-8e07e5a705e2
+		sourceLineageTag: lon
+		summarizeBy: none
+		sourceColumn: lon
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim_store = entity
+		mode: directLake
+		source
+			entityName: dim_store
+			expressionSource: 'DirectLake - mybrew_lakehouse'
+

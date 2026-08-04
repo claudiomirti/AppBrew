@@ -1,0 +1,197 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/graphInstance/definition/graphType/1.0.0/schema.json",
+  "nodeTypes": [
+    {
+      "primaryKeyProperties": [
+        "customer_id"
+      ],
+      "alias": "192647598411406",
+      "labels": [
+        "dim_customer"
+      ],
+      "properties": [
+        {
+          "name": "customer_id",
+          "type": "STRING"
+        },
+        {
+          "name": "name",
+          "type": "STRING"
+        },
+        {
+          "name": "tier",
+          "type": "STRING"
+        },
+        {
+          "name": "tier_points",
+          "type": "INT"
+        },
+        {
+          "name": "city",
+          "type": "STRING"
+        },
+        {
+          "name": "country",
+          "type": "STRING"
+        },
+        {
+          "name": "opted_in",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "last_visit",
+          "type": "DATETIME"
+        }
+      ]
+    },
+    {
+      "primaryKeyProperties": [
+        "campaign_id"
+      ],
+      "alias": "237609305681636",
+      "labels": [
+        "dim_campaign"
+      ],
+      "properties": [
+        {
+          "name": "campaign_id",
+          "type": "STRING"
+        },
+        {
+          "name": "campaign_name",
+          "type": "STRING"
+        },
+        {
+          "name": "channel",
+          "type": "STRING"
+        },
+        {
+          "name": "publisher",
+          "type": "STRING"
+        },
+        {
+          "name": "segment_target",
+          "type": "STRING"
+        },
+        {
+          "name": "start_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "end_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "budget_gbp",
+          "type": "INT"
+        }
+      ]
+    },
+    {
+      "primaryKeyProperties": [
+        "condition"
+      ],
+      "alias": "77219337030061",
+      "labels": [
+        "dim_weather"
+      ],
+      "properties": [
+        {
+          "name": "city",
+          "type": "STRING"
+        },
+        {
+          "name": "date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "temp_c",
+          "type": "INT"
+        },
+        {
+          "name": "condition",
+          "type": "STRING"
+        },
+        {
+          "name": "precip_mm",
+          "type": "FLOAT"
+        }
+      ]
+    },
+    {
+      "primaryKeyProperties": [
+        "product_id"
+      ],
+      "alias": "116313263396477",
+      "labels": [
+        "dim_product"
+      ],
+      "properties": [
+        {
+          "name": "product_id",
+          "type": "STRING"
+        },
+        {
+          "name": "product_name",
+          "type": "STRING"
+        },
+        {
+          "name": "category",
+          "type": "STRING"
+        },
+        {
+          "name": "price_gbp",
+          "type": "FLOAT"
+        },
+        {
+          "name": "is_seasonal",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "serve_temp",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "primaryKeyProperties": [
+        "store_id"
+      ],
+      "alias": "195480531039914",
+      "labels": [
+        "dim_store"
+      ],
+      "properties": [
+        {
+          "name": "store_id",
+          "type": "STRING"
+        },
+        {
+          "name": "store_name",
+          "type": "STRING"
+        },
+        {
+          "name": "city",
+          "type": "STRING"
+        },
+        {
+          "name": "region",
+          "type": "STRING"
+        },
+        {
+          "name": "country",
+          "type": "STRING"
+        },
+        {
+          "name": "lat",
+          "type": "FLOAT"
+        },
+        {
+          "name": "lon",
+          "type": "FLOAT"
+        }
+      ]
+    }
+  ],
+  "edgeTypes": []
+}

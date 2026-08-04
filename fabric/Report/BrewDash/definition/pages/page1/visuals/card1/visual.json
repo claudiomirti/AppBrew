@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "card1",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 120,
+    "width": 280
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CampaignPerformance"
+                        }
+                      },
+                      "Property": "revenue_gbp"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(CampaignPerformance.revenue_gbp)"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

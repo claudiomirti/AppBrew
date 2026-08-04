@@ -1,0 +1,44 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "097b9f11-29a0-49e4-9330-55b58846a301",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "txn_id",
+        "targetPropertyId": "951242285058060473"
+      },
+      {
+        "sourceColumnName": "customer_id",
+        "targetPropertyId": "951242308399870297"
+      },
+      {
+        "sourceColumnName": "store_id",
+        "targetPropertyId": "951242333250252532"
+      },
+      {
+        "sourceColumnName": "campaign_id",
+        "targetPropertyId": "951242352023312748"
+      },
+      {
+        "sourceColumnName": "product_id",
+        "targetPropertyId": "951242374240302890"
+      },
+      {
+        "sourceColumnName": "amount_gbp",
+        "targetPropertyId": "951242395849141851"
+      },
+      {
+        "sourceColumnName": "timestamp",
+        "targetPropertyId": "951242419516126293"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+      "itemId": "4084ce1f-b97f-4949-81a9-755f32d1f5df",
+      "sourceTableName": "fact_transaction",
+      "sourceSchema": null
+    }
+  }
+}

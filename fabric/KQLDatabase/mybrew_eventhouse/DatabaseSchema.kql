@@ -1,0 +1,8 @@
+// KQL script
+// Use management commands in this script to configure your database items, such as tables, functions, materialized views, and more.
+
+
+.create-merge table POSTransactions (txn_id:string, customer_id:string, store_id:string, campaign_id:string, product_id:string, amount_gbp:real, event_time:datetime) 
+.create-merge table AdImpressions (impression_id:string, campaign_id:string, customer_id:string, publisher:string, creative_id:string, clicked:bool, converted:bool, spend_amount_gbp:real, event_time:datetime) 
+.create-merge table WeatherEvents (city:string, temp_c:real, condition:string, precip_mm:real, event_time:datetime) 
+.create-merge table ROIMetrics (campaign_id:string, publisher:string, region:string, attributed_revenue_gbp:real, total_spend_gbp:real, roi:real, conversions:long, event_time:datetime) 

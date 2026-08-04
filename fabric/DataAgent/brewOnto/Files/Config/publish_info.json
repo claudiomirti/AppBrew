@@ -1,0 +1,4 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/publishInfo/1.0.0/schema.json",
+  "description": "Answers questions about Mybrew coffee retail performance using the MybrewOnto ontology: transactions and revenue (fact_transaction), ad impressions, clicks, conversions and media spend (fact_impression), plus customer loyalty tiers, campaigns, products, stores and weather. Use it for revenue by tier/store/product, campaign ROAS and conversion rates, and weather-versus-sales questions. All amounts are GBP."
+}

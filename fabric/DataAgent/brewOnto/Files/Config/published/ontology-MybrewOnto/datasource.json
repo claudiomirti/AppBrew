@@ -1,0 +1,76 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+  "artifactId": "6b19ceb0-32d4-411e-8221-cf2940fc07ca",
+  "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+  "dataSourceInstructions": null,
+  "displayName": "MybrewOnto",
+  "type": "ontology",
+  "userDescription": null,
+  "metadata": {},
+  "elements": [
+    {
+      "id": "dim_customer",
+      "is_selected": true,
+      "display_name": "dim_customer",
+      "type": "ontology.entity",
+      "description": "customer_id,name,tier,tier_points,city,country,opted_in,last_visit",
+      "children": []
+    },
+    {
+      "id": "dim_campaign",
+      "is_selected": true,
+      "display_name": "dim_campaign",
+      "type": "ontology.entity",
+      "description": "campaign_id,campaign_name,channel,publisher,segment_target,start_date,end_date,budget_gbp",
+      "children": []
+    },
+    {
+      "id": "fact_impression",
+      "is_selected": true,
+      "display_name": "fact_impression",
+      "type": "ontology.entity",
+      "description": "impression_id,campaign_id,customer_id,publisher,creative_id,clicked,converted,spend_amount_gbp,timestamp",
+      "children": []
+    },
+    {
+      "id": "identity_match",
+      "is_selected": true,
+      "display_name": "identity_match",
+      "type": "ontology.entity",
+      "description": "loyalty_id,impression_id,match_confidence,match_method",
+      "children": []
+    },
+    {
+      "id": "dim_weather",
+      "is_selected": true,
+      "display_name": "dim_weather",
+      "type": "ontology.entity",
+      "description": "city,date,temp_c,condition,precip_mm",
+      "children": []
+    },
+    {
+      "id": "dim_product",
+      "is_selected": true,
+      "display_name": "dim_product",
+      "type": "ontology.entity",
+      "description": "product_id,product_name,category,price_gbp,is_seasonal,serve_temp",
+      "children": []
+    },
+    {
+      "id": "fact_transaction",
+      "is_selected": true,
+      "display_name": "fact_transaction",
+      "type": "ontology.entity",
+      "description": "txn_id,customer_id,store_id,campaign_id,product_id,amount_gbp,timestamp",
+      "children": []
+    },
+    {
+      "id": "dim_store",
+      "is_selected": true,
+      "display_name": "dim_store",
+      "type": "ontology.entity",
+      "description": "store_id,store_name,city,region,country,lat,lon",
+      "children": []
+    }
+  ]
+}

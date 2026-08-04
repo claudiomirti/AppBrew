@@ -1,0 +1,44 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "96cf17aa-48a5-44d8-bd34-4143baea4e24",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "store_id",
+        "targetPropertyId": "951242630211522270"
+      },
+      {
+        "sourceColumnName": "store_name",
+        "targetPropertyId": "951242654709555261"
+      },
+      {
+        "sourceColumnName": "city",
+        "targetPropertyId": "951242675006179937"
+      },
+      {
+        "sourceColumnName": "region",
+        "targetPropertyId": "951242696900871351"
+      },
+      {
+        "sourceColumnName": "country",
+        "targetPropertyId": "951242722417311082"
+      },
+      {
+        "sourceColumnName": "lat",
+        "targetPropertyId": "951242743208003247"
+      },
+      {
+        "sourceColumnName": "lon",
+        "targetPropertyId": "951242769953944863"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+      "itemId": "4084ce1f-b97f-4949-81a9-755f32d1f5df",
+      "sourceTableName": "dim_store",
+      "sourceSchema": null
+    }
+  }
+}

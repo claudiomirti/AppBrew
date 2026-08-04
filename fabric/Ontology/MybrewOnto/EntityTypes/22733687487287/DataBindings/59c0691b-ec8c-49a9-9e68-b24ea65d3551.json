@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "59c0691b-ec8c-49a9-9e68-b24ea65d3551",
+  "dataBindingConfiguration": {
+    "dataBindingType": "TimeSeries",
+    "timestampColumnName": "event_time",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "city",
+        "targetPropertyId": "1890944957196419220"
+      },
+      {
+        "sourceColumnName": "condition",
+        "targetPropertyId": "1890944958229824945"
+      },
+      {
+        "sourceColumnName": "event_time",
+        "targetPropertyId": "1890944956796642080"
+      },
+      {
+        "sourceColumnName": "precip_mm",
+        "targetPropertyId": "1890944955076877811"
+      },
+      {
+        "sourceColumnName": "temp_c",
+        "targetPropertyId": "1890944955754194918"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "KustoTable",
+      "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+      "itemId": "66527961-2eef-46f3-abcc-f5c01a345f0d",
+      "clusterUri": "https://trd-t1s1uap7p3xkuvdx9s.z8.kusto.fabric.microsoft.com",
+      "databaseName": "mybrew_eventhouse",
+      "sourceTableName": "WeatherEvents"
+    }
+  }
+}

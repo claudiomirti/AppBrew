@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "94c8d56d-ce23-4e38-ae39-a88eba01fbb2",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "impression_id",
+        "targetPropertyId": "951241602907161882"
+      },
+      {
+        "sourceColumnName": "campaign_id",
+        "targetPropertyId": "951241628105873376"
+      },
+      {
+        "sourceColumnName": "customer_id",
+        "targetPropertyId": "951241647967970322"
+      },
+      {
+        "sourceColumnName": "publisher",
+        "targetPropertyId": "951241671833635700"
+      },
+      {
+        "sourceColumnName": "creative_id",
+        "targetPropertyId": "951241693172641656"
+      },
+      {
+        "sourceColumnName": "clicked",
+        "targetPropertyId": "951241719049485510"
+      },
+      {
+        "sourceColumnName": "converted",
+        "targetPropertyId": "951241737642374614"
+      },
+      {
+        "sourceColumnName": "spend_amount_gbp",
+        "targetPropertyId": "951241762127238214"
+      },
+      {
+        "sourceColumnName": "timestamp",
+        "targetPropertyId": "951241782870173129"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+      "itemId": "4084ce1f-b97f-4949-81a9-755f32d1f5df",
+      "sourceTableName": "fact_impression",
+      "sourceSchema": null
+    }
+  }
+}

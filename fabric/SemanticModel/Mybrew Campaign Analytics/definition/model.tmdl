@@ -1,0 +1,8 @@
+model 'Mybrew Campaign Analytics'
+	defaultMode: directQuery
+	culture: en-US
+
+ref table CampaignPerformance
+ref table CustomerSegment
+ref table PersonalizationTriggers
+

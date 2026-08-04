@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/graphInstance/definition/stylingConfiguration/1.0.0/schema.json",
+  "modelLayout": {
+    "positions": {},
+    "styles": {},
+    "pan": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "zoomLevel": 1.0
+  },
+  "visualFormat": null,
+  "scenario": "Ontology"
+}

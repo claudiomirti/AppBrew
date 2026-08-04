@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "1e5db74b-762c-4f6f-b0ce-335807ed3fab",
+  "dataBindingConfiguration": {
+    "dataBindingType": "TimeSeries",
+    "timestampColumnName": "event_time",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "campaign_id",
+        "targetPropertyId": "1266839905616055353"
+      },
+      {
+        "sourceColumnName": "clicked",
+        "targetPropertyId": "1266839905750947952"
+      },
+      {
+        "sourceColumnName": "converted",
+        "targetPropertyId": "1266839903358805897"
+      },
+      {
+        "sourceColumnName": "creative_id",
+        "targetPropertyId": "1266839906012250777"
+      },
+      {
+        "sourceColumnName": "customer_id",
+        "targetPropertyId": "951240940550239011"
+      },
+      {
+        "sourceColumnName": "publisher",
+        "targetPropertyId": "1266839903451780005"
+      },
+      {
+        "sourceColumnName": "spend_amount_gbp",
+        "targetPropertyId": "1266839906695164345"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "KustoTable",
+      "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+      "itemId": "66527961-2eef-46f3-abcc-f5c01a345f0d",
+      "clusterUri": "https://trd-t1s1uap7p3xkuvdx9s.z8.kusto.fabric.microsoft.com",
+      "databaseName": "mybrew_eventhouse",
+      "sourceTableName": "AdImpressions"
+    }
+  }
+}

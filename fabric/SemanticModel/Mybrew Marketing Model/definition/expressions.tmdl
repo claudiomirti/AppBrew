@@ -1,0 +1,11 @@
+expression 'DirectLake - mybrew_lakehouse' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/4bf66efa-94d7-4753-a5c4-70c79358bbd6/4084ce1f-b97f-4949-81a9-755f32d1f5df", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: fa6a978b-b26a-41be-b38a-18c5a9c9027b
+
+	annotation PBI_IncludeFutureArtifacts = False
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[streaming_weather]"}},"objectType":"Table"}]
+

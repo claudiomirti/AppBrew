@@ -1,0 +1,608 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+  "artifactId": "ba620ccd-79c6-474e-902a-5fd423250fc8",
+  "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+  "dataSourceInstructions": null,
+  "displayName": "Mybrew Marketing Model",
+  "type": "semantic_model",
+  "userDescription": null,
+  "metadata": {
+    "csdl_relationships": "[{\"FromTable\":\"fact_impression\",\"FromColumn\":\"campaign_id\",\"ToTable\":\"dim_campaign\",\"ToColumn\":\"campaign_id\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"fact_transaction\",\"FromColumn\":\"customer_id\",\"ToTable\":\"dim_customer\",\"ToColumn\":\"customer_id\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"fact_transaction\",\"FromColumn\":\"store_id\",\"ToTable\":\"dim_store\",\"ToColumn\":\"store_id\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"fact_transaction\",\"FromColumn\":\"product_id\",\"ToTable\":\"dim_product\",\"ToColumn\":\"product_id\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"}]"
+  },
+  "elements": [
+    {
+      "id": "4063f669-371b-48d2-bcb4-aea86f159ac1",
+      "is_selected": true,
+      "display_name": "dim_campaign",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "aa03ec08-4060-41c0-92be-89248accb414",
+          "is_selected": true,
+          "display_name": "campaign_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7ca4de02-b8e5-4e74-a653-a664d989ee7b",
+          "is_selected": true,
+          "display_name": "campaign_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "64b925d2-a6a7-4820-be1f-76d05368e7f1",
+          "is_selected": true,
+          "display_name": "channel",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2545a8ef-7623-4287-b0f6-d31c0b1e6bb8",
+          "is_selected": true,
+          "display_name": "publisher",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7a60b52e-b0c9-4f07-945c-d1f7e40c47ff",
+          "is_selected": true,
+          "display_name": "segment_target",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1efe9dd3-4018-4066-9760-5244b41e5d38",
+          "is_selected": true,
+          "display_name": "start_date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3ed05b16-f65d-426c-afb7-9963be53f692",
+          "is_selected": true,
+          "display_name": "end_date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a6b8e6a2-afc6-48fc-ac3b-d6fe73be45da",
+          "is_selected": true,
+          "display_name": "budget_gbp",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cf653a59-f3e6-4a73-80a2-24f87a60731d",
+      "is_selected": true,
+      "display_name": "dim_customer",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "e7b11839-7827-4743-a24b-3b9723262dcb",
+          "is_selected": true,
+          "display_name": "customer_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d9b911a4-8f66-42d1-9e63-a2c0f13c0481",
+          "is_selected": true,
+          "display_name": "name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2e50cc43-ce42-4e4c-b12b-ddacafe706aa",
+          "is_selected": true,
+          "display_name": "tier",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6da71caf-5aff-430e-9f47-a46d7c3987ec",
+          "is_selected": true,
+          "display_name": "tier_points",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8f27b75d-a05e-45a2-a5cd-b77a3d8ec0b6",
+          "is_selected": true,
+          "display_name": "city",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2d6efd80-14d3-497c-8c95-5d5b47455870",
+          "is_selected": true,
+          "display_name": "country",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "10e55894-c315-4380-95b8-b8c906ccacbf",
+          "is_selected": true,
+          "display_name": "opted_in",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "74bf6971-f4d8-4835-973f-015df6c7bf81",
+          "is_selected": true,
+          "display_name": "last_visit",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "0a4c8d81-cb48-4838-b565-0044f3b1c6f9",
+      "is_selected": true,
+      "display_name": "dim_product",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "d7146855-8d6f-4f0b-bf18-75eaa2a619e7",
+          "is_selected": true,
+          "display_name": "product_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1b6ea0e3-3926-4586-af75-9256b40a54e3",
+          "is_selected": true,
+          "display_name": "product_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "917ead38-27ba-4ec9-a8ee-e16528fa7869",
+          "is_selected": true,
+          "display_name": "category",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f4b022a8-d090-4742-aa83-5a8a33bd0d96",
+          "is_selected": true,
+          "display_name": "price_gbp",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "34d5d586-cfe3-4d4c-a253-38a2490823c0",
+          "is_selected": true,
+          "display_name": "is_seasonal",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "19d67b88-085c-44c9-b2cf-6dccc1e1f0a9",
+          "is_selected": true,
+          "display_name": "serve_temp",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "37fa994b-5b3b-4304-8ccd-ec0e9037a1e2",
+      "is_selected": true,
+      "display_name": "dim_store",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "f1310f27-a624-4ad0-8ff7-4d48188d9eab",
+          "is_selected": true,
+          "display_name": "store_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a1bcfb85-6a19-40d7-900d-bb9e8dd0cb86",
+          "is_selected": true,
+          "display_name": "store_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "980629f4-abf6-4a9b-8079-fcf886150b06",
+          "is_selected": true,
+          "display_name": "city",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8d4f0699-9f28-48ea-a866-e25e1a5d26f9",
+          "is_selected": true,
+          "display_name": "region",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fea4f42d-52f2-41a9-b0e5-416dc86dbe8e",
+          "is_selected": true,
+          "display_name": "country",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "39e338ea-d166-471e-8176-5537ecd2c5ba",
+          "is_selected": true,
+          "display_name": "lat",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3963d4d7-0add-43ab-8e17-8e07e5a705e2",
+          "is_selected": true,
+          "display_name": "lon",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "663a0fcf-1030-484a-a0cb-97e37d607097",
+      "is_selected": true,
+      "display_name": "dim_weather",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "b6b7b85a-a25e-495d-a933-1eda577eafe8",
+          "is_selected": true,
+          "display_name": "city",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3c4b6fb8-6f4c-4045-a378-8908afd1e87a",
+          "is_selected": true,
+          "display_name": "date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e9acd9f2-6d83-4e0c-8a97-e8bf9220b34f",
+          "is_selected": true,
+          "display_name": "temp_c",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b4ea79b1-30a4-49a3-ba7a-e2e1d7a034d4",
+          "is_selected": true,
+          "display_name": "condition",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b0890598-e7e1-4526-b3a1-9255dc2c2f5f",
+          "is_selected": true,
+          "display_name": "precip_mm",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "facea1a1-a2bb-4627-91f9-a2257d518233",
+      "is_selected": true,
+      "display_name": "fact_impression",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "bcdb6b90-cfb6-485d-8483-320f3accb920",
+          "is_selected": true,
+          "display_name": "impression_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "65365851-9dd3-4492-a3aa-0da920583aa2",
+          "is_selected": true,
+          "display_name": "campaign_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3098b3fc-057f-48b5-b769-21526525a8c1",
+          "is_selected": true,
+          "display_name": "customer_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "35f3d1aa-5427-44af-a90a-7182f66236cd",
+          "is_selected": true,
+          "display_name": "publisher",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f10b800f-d866-4e59-9f68-dc484124d91a",
+          "is_selected": true,
+          "display_name": "creative_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2f641d19-e973-4887-aa93-519276f75925",
+          "is_selected": true,
+          "display_name": "clicked",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "944219ff-d94d-44c3-b827-029961fc3324",
+          "is_selected": true,
+          "display_name": "converted",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "353a45b7-b1c5-454b-8a9d-069d40e5ea47",
+          "is_selected": true,
+          "display_name": "spend_amount_gbp",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "77974e36-31b9-4fc4-ba91-f7a9e963af3c",
+          "is_selected": true,
+          "display_name": "timestamp",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "dfff5c3d-3ef8-4d61-8192-ad7edd4b6cee",
+      "is_selected": true,
+      "display_name": "fact_transaction",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "016785c6-5076-4932-9f66-26f52579241c",
+          "is_selected": true,
+          "display_name": "txn_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "34e146cf-6935-4274-848c-458ba888cffc",
+          "is_selected": true,
+          "display_name": "customer_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9b0d0b2b-43df-40b1-996f-896dc97ed8e1",
+          "is_selected": true,
+          "display_name": "store_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "dbe0a623-2555-4855-ba2c-c934b440c07c",
+          "is_selected": true,
+          "display_name": "campaign_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e72b7e25-bf60-41e6-84e0-5006c5c2e102",
+          "is_selected": true,
+          "display_name": "product_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c3a5af5b-b2cd-4674-aa9b-3333c2a781b4",
+          "is_selected": true,
+          "display_name": "amount_gbp",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b41ac5c4-9078-4a06-b28d-9df522806cb5",
+          "is_selected": true,
+          "display_name": "timestamp",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "de34dcdc-2004-446e-8588-6078a31f7ba2",
+          "is_selected": true,
+          "display_name": "Total Spend",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "da683208-2c6b-440a-b1c8-941ec97acc6b",
+          "is_selected": true,
+          "display_name": "Revenue",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "97abaaa3-68c7-40a9-8218-c5c7d7e2fa34",
+          "is_selected": true,
+          "display_name": "ROAS",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a0c69fae-9f8e-4fdd-8bee-a3b83083e920",
+          "is_selected": true,
+          "display_name": "Conversion Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "5d92124d-68a6-455c-8c44-f39ab8374e11",
+      "is_selected": true,
+      "display_name": "identity_match",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "02f66047-0409-4c10-a763-f3367bc0da57",
+          "is_selected": true,
+          "display_name": "loyalty_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0f6ebf1e-2cfe-4da0-ab16-bf18f1826238",
+          "is_selected": true,
+          "display_name": "impression_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a5a47335-4577-46e3-ac03-09e6e3718df6",
+          "is_selected": true,
+          "display_name": "match_confidence",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8eb322d0-fd04-4bff-a7af-fc51b723710d",
+          "is_selected": true,
+          "display_name": "match_method",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

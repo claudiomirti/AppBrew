@@ -1,0 +1,102 @@
+table fact_transaction
+	lineageTag: dfff5c3d-3ef8-4d61-8192-ad7edd4b6cee
+	sourceLineageTag: [dbo].[fact_transaction]
+
+	measure 'Total Spend' = SUM(dim_campaign[budget_gbp])
+		formatString: 0
+		lineageTag: de34dcdc-2004-446e-8588-6078a31f7ba2
+
+		changedProperty = Name
+
+	measure Revenue = SUM(fact_transaction[amount_gbp])
+		lineageTag: da683208-2c6b-440a-b1c8-941ec97acc6b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ROAS = DIVIDE([Revenue], [Total Spend])
+		lineageTag: 97abaaa3-68c7-40a9-8218-c5c7d7e2fa34
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Conversion Rate' = DIVIDE(COUNTROWS(fact_transaction), SUM(fact_impression[impression_id]))
+		formatString: 0
+		lineageTag: a0c69fae-9f8e-4fdd-8bee-a3b83083e920
+
+		changedProperty = Name
+
+	column txn_id
+		dataType: string
+		lineageTag: 016785c6-5076-4932-9f66-26f52579241c
+		sourceLineageTag: txn_id
+		summarizeBy: none
+		sourceColumn: txn_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 34e146cf-6935-4274-848c-458ba888cffc
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: string
+		lineageTag: 9b0d0b2b-43df-40b1-996f-896dc97ed8e1
+		sourceLineageTag: store_id
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_id
+		dataType: string
+		lineageTag: dbe0a623-2555-4855-ba2c-c934b440c07c
+		sourceLineageTag: campaign_id
+		summarizeBy: none
+		sourceColumn: campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: e72b7e25-bf60-41e6-84e0-5006c5c2e102
+		sourceLineageTag: product_id
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_gbp
+		dataType: double
+		lineageTag: c3a5af5b-b2cd-4674-aa9b-3333c2a781b4
+		sourceLineageTag: amount_gbp
+		summarizeBy: sum
+		sourceColumn: amount_gbp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b41ac5c4-9078-4a06-b28d-9df522806cb5
+		sourceLineageTag: timestamp
+		summarizeBy: none
+		sourceColumn: timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_transaction = entity
+		mode: directLake
+		source
+			entityName: fact_transaction
+			expressionSource: 'DirectLake - mybrew_lakehouse'
+

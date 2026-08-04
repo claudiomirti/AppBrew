@@ -1,0 +1,255 @@
+{
+  "sources": [
+    {
+      "id": "3cb89dfa-2778-43ca-82cc-2220a2c4b476",
+      "name": "roi_source",
+      "type": "CustomEndpoint",
+      "properties": {}
+    },
+    {
+      "id": "5c66d0c6-a3c2-4053-8db9-c366252ccf5a",
+      "name": "pos_source",
+      "type": "CustomEndpoint",
+      "properties": {}
+    },
+    {
+      "id": "678617a9-0ea4-46eb-a21e-26f3439909e8",
+      "name": "weather_source",
+      "type": "CustomEndpoint",
+      "properties": {}
+    },
+    {
+      "id": "9fa42f9e-3d56-4611-bab9-c8ec56ecb784",
+      "name": "impressions_source",
+      "type": "CustomEndpoint",
+      "properties": {}
+    }
+  ],
+  "destinations": [
+    {
+      "id": "3d86f4fd-008d-46d6-97a1-eb7f1ed97efb",
+      "name": "weather_dest",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+        "itemId": "d8446837-44f8-4c1a-bff6-474de9e54fcd",
+        "databaseName": "mybrew_eventhouse",
+        "tableName": "WeatherEvents",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "weather_filter"
+        }
+      ]
+    },
+    {
+      "id": "48c69bc1-2bf3-4256-9f7c-8273bdb87604",
+      "name": "roi_dest",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+        "itemId": "d8446837-44f8-4c1a-bff6-474de9e54fcd",
+        "databaseName": "mybrew_eventhouse",
+        "tableName": "ROIMetrics",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "roi_filter"
+        }
+      ]
+    },
+    {
+      "id": "4d7c86b4-decf-4061-9388-5b38ac52f544",
+      "name": "pos_dest",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+        "itemId": "d8446837-44f8-4c1a-bff6-474de9e54fcd",
+        "databaseName": "mybrew_eventhouse",
+        "tableName": "POSTransactions",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "pos_filter"
+        }
+      ]
+    },
+    {
+      "id": "e8bc88fc-de60-4754-b201-8fa6d3b79a21",
+      "name": "impressions_dest",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+        "itemId": "d8446837-44f8-4c1a-bff6-474de9e54fcd",
+        "databaseName": "mybrew_eventhouse",
+        "tableName": "AdImpressions",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "impressions_filter"
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "76f1b6c7-b11f-4318-ba8c-e204adc487a2",
+      "name": "main_stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "impressions_source"
+        },
+        {
+          "name": "pos_source"
+        },
+        {
+          "name": "roi_source"
+        },
+        {
+          "name": "weather_source"
+        }
+      ]
+    }
+  ],
+  "operators": [
+    {
+      "name": "impressions_filter",
+      "type": "Filter",
+      "inputNodes": [
+        {
+          "name": "main_stream"
+        }
+      ],
+      "properties": {
+        "conditions": [
+          {
+            "column": {
+              "expressionType": "ColumnReference",
+              "node": null,
+              "columnName": "event_type",
+              "columnPathSegments": null
+            },
+            "operatorType": "Equals",
+            "value": {
+              "expressionType": "Literal",
+              "dataType": "Nvarchar(max)",
+              "value": "impression"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "pos_filter",
+      "type": "Filter",
+      "inputNodes": [
+        {
+          "name": "main_stream"
+        }
+      ],
+      "properties": {
+        "conditions": [
+          {
+            "column": {
+              "expressionType": "ColumnReference",
+              "node": null,
+              "columnName": "event_type",
+              "columnPathSegments": null
+            },
+            "operatorType": "Equals",
+            "value": {
+              "expressionType": "Literal",
+              "dataType": "Nvarchar(max)",
+              "value": "pos"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "roi_filter",
+      "type": "Filter",
+      "inputNodes": [
+        {
+          "name": "main_stream"
+        }
+      ],
+      "properties": {
+        "conditions": [
+          {
+            "column": {
+              "expressionType": "ColumnReference",
+              "node": null,
+              "columnName": "event_type",
+              "columnPathSegments": null
+            },
+            "operatorType": "Equals",
+            "value": {
+              "expressionType": "Literal",
+              "dataType": "Nvarchar(max)",
+              "value": "roi"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "weather_filter",
+      "type": "Filter",
+      "inputNodes": [
+        {
+          "name": "main_stream"
+        }
+      ],
+      "properties": {
+        "conditions": [
+          {
+            "column": {
+              "expressionType": "ColumnReference",
+              "node": null,
+              "columnName": "event_type",
+              "columnPathSegments": null
+            },
+            "operatorType": "Equals",
+            "value": {
+              "expressionType": "Literal",
+              "dataType": "Nvarchar(max)",
+              "value": "weather"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "compatibilityLevel": "1.1"
+}

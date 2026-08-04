@@ -1,0 +1,177 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/graphInstance/definition/graphDefinition/1.0.0/schema.json",
+  "nodeTables": [
+    {
+      "nodeTypeAlias": "192647598411406",
+      "id": "7839511b-51ff-4604-8448-e79699252dc7",
+      "dataSourceName": "4084ce1f-b97f-4949-81a9-755f32d1f5df_dim_customer",
+      "propertyMappings": [
+        {
+          "propertyName": "customer_id",
+          "sourceColumn": "customer_id"
+        },
+        {
+          "propertyName": "name",
+          "sourceColumn": "name"
+        },
+        {
+          "propertyName": "tier",
+          "sourceColumn": "tier"
+        },
+        {
+          "propertyName": "tier_points",
+          "sourceColumn": "tier_points"
+        },
+        {
+          "propertyName": "city",
+          "sourceColumn": "city"
+        },
+        {
+          "propertyName": "country",
+          "sourceColumn": "country"
+        },
+        {
+          "propertyName": "opted_in",
+          "sourceColumn": "opted_in"
+        },
+        {
+          "propertyName": "last_visit",
+          "sourceColumn": "last_visit"
+        }
+      ]
+    },
+    {
+      "nodeTypeAlias": "237609305681636",
+      "id": "7ac8d7dc-c750-4aef-a9c7-84938459bf8c",
+      "dataSourceName": "4084ce1f-b97f-4949-81a9-755f32d1f5df_dim_campaign",
+      "propertyMappings": [
+        {
+          "propertyName": "campaign_id",
+          "sourceColumn": "campaign_id"
+        },
+        {
+          "propertyName": "campaign_name",
+          "sourceColumn": "campaign_name"
+        },
+        {
+          "propertyName": "channel",
+          "sourceColumn": "channel"
+        },
+        {
+          "propertyName": "publisher",
+          "sourceColumn": "publisher"
+        },
+        {
+          "propertyName": "segment_target",
+          "sourceColumn": "segment_target"
+        },
+        {
+          "propertyName": "start_date",
+          "sourceColumn": "start_date"
+        },
+        {
+          "propertyName": "end_date",
+          "sourceColumn": "end_date"
+        },
+        {
+          "propertyName": "budget_gbp",
+          "sourceColumn": "budget_gbp"
+        }
+      ]
+    },
+    {
+      "nodeTypeAlias": "77219337030061",
+      "id": "5b25c904-bbe9-4695-8f85-bc329b044b07",
+      "dataSourceName": "4084ce1f-b97f-4949-81a9-755f32d1f5df_dim_weather",
+      "propertyMappings": [
+        {
+          "propertyName": "city",
+          "sourceColumn": "city"
+        },
+        {
+          "propertyName": "date",
+          "sourceColumn": "date"
+        },
+        {
+          "propertyName": "temp_c",
+          "sourceColumn": "temp_c"
+        },
+        {
+          "propertyName": "condition",
+          "sourceColumn": "condition"
+        },
+        {
+          "propertyName": "precip_mm",
+          "sourceColumn": "precip_mm"
+        }
+      ]
+    },
+    {
+      "nodeTypeAlias": "116313263396477",
+      "id": "5b08525b-b154-4bc4-8dcb-e48eac44a348",
+      "dataSourceName": "4084ce1f-b97f-4949-81a9-755f32d1f5df_dim_product",
+      "propertyMappings": [
+        {
+          "propertyName": "product_id",
+          "sourceColumn": "product_id"
+        },
+        {
+          "propertyName": "product_name",
+          "sourceColumn": "product_name"
+        },
+        {
+          "propertyName": "category",
+          "sourceColumn": "category"
+        },
+        {
+          "propertyName": "price_gbp",
+          "sourceColumn": "price_gbp"
+        },
+        {
+          "propertyName": "is_seasonal",
+          "sourceColumn": "is_seasonal"
+        },
+        {
+          "propertyName": "serve_temp",
+          "sourceColumn": "serve_temp"
+        }
+      ]
+    },
+    {
+      "nodeTypeAlias": "195480531039914",
+      "id": "01126857-a6bb-491a-808d-21d3cb4e7781",
+      "dataSourceName": "4084ce1f-b97f-4949-81a9-755f32d1f5df_dim_store",
+      "propertyMappings": [
+        {
+          "propertyName": "store_id",
+          "sourceColumn": "store_id"
+        },
+        {
+          "propertyName": "store_name",
+          "sourceColumn": "store_name"
+        },
+        {
+          "propertyName": "city",
+          "sourceColumn": "city"
+        },
+        {
+          "propertyName": "region",
+          "sourceColumn": "region"
+        },
+        {
+          "propertyName": "country",
+          "sourceColumn": "country"
+        },
+        {
+          "propertyName": "lat",
+          "sourceColumn": "lat"
+        },
+        {
+          "propertyName": "lon",
+          "sourceColumn": "lon"
+        }
+      ]
+    }
+  ],
+  "edgeTables": []
+}

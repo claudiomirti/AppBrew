@@ -1,0 +1,96 @@
+table fact_impression
+	lineageTag: facea1a1-a2bb-4627-91f9-a2257d518233
+	sourceLineageTag: [dbo].[fact_impression]
+
+	column impression_id
+		dataType: string
+		lineageTag: bcdb6b90-cfb6-485d-8483-320f3accb920
+		sourceLineageTag: impression_id
+		summarizeBy: none
+		sourceColumn: impression_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_id
+		dataType: string
+		lineageTag: 65365851-9dd3-4492-a3aa-0da920583aa2
+		sourceLineageTag: campaign_id
+		summarizeBy: none
+		sourceColumn: campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 3098b3fc-057f-48b5-b769-21526525a8c1
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column publisher
+		dataType: string
+		lineageTag: 35f3d1aa-5427-44af-a90a-7182f66236cd
+		sourceLineageTag: publisher
+		summarizeBy: none
+		sourceColumn: publisher
+
+		annotation SummarizationSetBy = Automatic
+
+	column creative_id
+		dataType: string
+		lineageTag: f10b800f-d866-4e59-9f68-dc484124d91a
+		sourceLineageTag: creative_id
+		summarizeBy: none
+		sourceColumn: creative_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column clicked
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2f641d19-e973-4887-aa93-519276f75925
+		sourceLineageTag: clicked
+		summarizeBy: none
+		sourceColumn: clicked
+
+		annotation SummarizationSetBy = Automatic
+
+	column converted
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 944219ff-d94d-44c3-b827-029961fc3324
+		sourceLineageTag: converted
+		summarizeBy: none
+		sourceColumn: converted
+
+		annotation SummarizationSetBy = Automatic
+
+	column spend_amount_gbp
+		dataType: double
+		lineageTag: 353a45b7-b1c5-454b-8a9d-069d40e5ea47
+		sourceLineageTag: spend_amount_gbp
+		summarizeBy: sum
+		sourceColumn: spend_amount_gbp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 77974e36-31b9-4fc4-ba91-f7a9e963af3c
+		sourceLineageTag: timestamp
+		summarizeBy: none
+		sourceColumn: timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_impression = entity
+		mode: directLake
+		source
+			entityName: fact_impression
+			expressionSource: 'DirectLake - mybrew_lakehouse'
+

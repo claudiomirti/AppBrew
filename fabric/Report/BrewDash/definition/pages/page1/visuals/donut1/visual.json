@@ -1,0 +1,95 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "donut1",
+  "position": {
+    "x": 0,
+    "y": 264.86564161517464,
+    "z": 5000,
+    "height": 340.35234947549935,
+    "width": 438.26922073177093
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CampaignPerformance"
+                    }
+                  },
+                  "Property": "publisher"
+                }
+              },
+              "queryRef": "CampaignPerformance.publisher",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CampaignPerformance"
+                        }
+                      },
+                      "Property": "spend_gbp"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(CampaignPerformance.spend_gbp)"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ef6cc03216037946c05c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CampaignPerformance"
+              }
+            },
+            "Property": "publisher"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f9755b897bb49ac89b5c",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CampaignPerformance"
+                  }
+                },
+                "Property": "spend_gbp"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

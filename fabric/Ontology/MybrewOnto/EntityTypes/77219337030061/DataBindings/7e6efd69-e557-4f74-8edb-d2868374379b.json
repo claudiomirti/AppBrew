@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "7e6efd69-e557-4f74-8edb-d2868374379b",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "city",
+        "targetPropertyId": "951241986722864294"
+      },
+      {
+        "sourceColumnName": "date",
+        "targetPropertyId": "951242016064412175"
+      },
+      {
+        "sourceColumnName": "temp_c",
+        "targetPropertyId": "951242036459514457"
+      },
+      {
+        "sourceColumnName": "condition",
+        "targetPropertyId": "951242055286525785"
+      },
+      {
+        "sourceColumnName": "precip_mm",
+        "targetPropertyId": "951242084475252137"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+      "itemId": "4084ce1f-b97f-4949-81a9-755f32d1f5df",
+      "sourceTableName": "dim_weather",
+      "sourceSchema": null
+    }
+  }
+}

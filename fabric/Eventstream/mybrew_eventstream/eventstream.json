@@ -1,0 +1,51 @@
+{
+  "sources": [
+    {
+      "id": "af6226f6-4b23-4f9f-bd74-32bcfe56535d",
+      "name": "bicycles_stream",
+      "type": "SampleData",
+      "properties": {
+        "type": "Bicycles"
+      }
+    }
+  ],
+  "destinations": [
+    {
+      "id": "a7c22723-d103-4124-b936-8cb601ab873e",
+      "name": "lh_dest",
+      "type": "Lakehouse",
+      "properties": {
+        "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+        "itemId": "4084ce1f-b97f-4949-81a9-755f32d1f5df",
+        "schema": null,
+        "deltaTable": "streaming_weather",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "defaultStream"
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "2c94e0c9-ba96-4abd-98e8-c20cb011c872",
+      "name": "defaultStream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "bicycles_stream"
+        }
+      ]
+    }
+  ],
+  "operators": [],
+  "compatibilityLevel": "1.1"
+}

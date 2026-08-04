@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "87f9776c-7c3b-4341-97e7-8462ecf9502f",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "customer_id",
+        "targetPropertyId": "951240940550239011"
+      },
+      {
+        "sourceColumnName": "name",
+        "targetPropertyId": "951240994707197358"
+      },
+      {
+        "sourceColumnName": "tier",
+        "targetPropertyId": "951241028620493560"
+      },
+      {
+        "sourceColumnName": "tier_points",
+        "targetPropertyId": "951241052423779474"
+      },
+      {
+        "sourceColumnName": "city",
+        "targetPropertyId": "951241079975237025"
+      },
+      {
+        "sourceColumnName": "country",
+        "targetPropertyId": "951241102566280177"
+      },
+      {
+        "sourceColumnName": "opted_in",
+        "targetPropertyId": "951241131619489953"
+      },
+      {
+        "sourceColumnName": "last_visit",
+        "targetPropertyId": "951241156379314996"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "4bf66efa-94d7-4753-a5c4-70c79358bbd6",
+      "itemId": "4084ce1f-b97f-4949-81a9-755f32d1f5df",
+      "sourceTableName": "dim_customer",
+      "sourceSchema": null
+    }
+  }
+}
