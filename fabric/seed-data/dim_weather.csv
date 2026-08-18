@@ -1,0 +1,27 @@
+city,date,temp_c,condition,precip_mm
+London,2026-07-01,14,Partly Cloudy,0.0
+London,2026-07-02,12,Cloudy,1.5
+London,2026-07-03,10,Rain,5.2
+London,2026-07-04,9,Rain,7.1
+London,2026-07-05,8,Cloudy,2.1
+London,2026-07-06,5,Rain,8.4
+London,2026-07-07,3,Snow/Sleet,12.0
+London,2026-07-08,6,Overcast,4.2
+Manchester,2026-07-05,7,Rain,6.3
+Manchester,2026-07-06,5,Rain,9.1
+Manchester,2026-07-07,4,Rain,9.8
+Manchester,2026-07-08,7,Cloudy,3.5
+Los Angeles,2026-07-05,27,Sunny,0.0
+Los Angeles,2026-07-06,29,Sunny,0.0
+Los Angeles,2026-07-07,28,Sunny,0.0
+San Francisco,2026-07-05,17,Fog,0.0
+San Francisco,2026-07-06,16,Fog,0.0
+San Francisco,2026-07-07,18,Fog,0.0
+New York,2026-07-05,24,Partly Cloudy,0.0
+New York,2026-07-06,22,Thunderstorms,15.2
+New York,2026-07-07,20,Cloudy,2.0
+Seattle,2026-07-05,19,Overcast,1.2
+Seattle,2026-07-06,18,Rain,3.5
+Seattle,2026-07-07,17,Overcast,0.8
+Dublin,2026-07-07,9,Rain,6.4
+Chicago,2026-07-07,25,Sunny,0.0

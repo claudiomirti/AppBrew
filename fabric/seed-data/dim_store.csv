@@ -1,0 +1,16 @@
+store_id,store_name,city,region,country,lat,lon
+STR-LDN-001,Mybrew Covent Garden,London,South East,UK,51.5117,-0.1240
+STR-LDN-002,Mybrew King's Cross,London,South East,UK,51.5320,-0.1240
+STR-LDN-003,Mybrew Canary Wharf,London,South East,UK,51.5054,-0.0235
+STR-LDN-004,Mybrew Soho,London,South East,UK,51.5137,-0.1337
+STR-LDN-005,Mybrew Shoreditch,London,South East,UK,51.5235,-0.0771
+STR-MAN-001,Mybrew Deansgate,Manchester,North West,UK,53.4770,-2.2484
+STR-MAN-002,Mybrew Piccadilly,Manchester,North West,UK,53.4774,-2.2309
+STR-LA-001,Mybrew Santa Monica,Los Angeles,West Coast,US,34.0195,-118.4912
+STR-LA-002,Mybrew Hollywood,Los Angeles,West Coast,US,34.0928,-118.3287
+STR-SF-001,Mybrew Market St,San Francisco,West Coast,US,37.7749,-122.4194
+STR-NYC-001,Mybrew Times Square,New York,East Coast,US,40.7580,-73.9855
+STR-NYC-002,Mybrew Flatiron,New York,East Coast,US,40.7411,-73.9897
+STR-SEA-001,Mybrew Pike Place,Seattle,West Coast,US,47.6097,-122.3425
+STR-CHI-001,Mybrew Michigan Ave,Chicago,Midwest,US,41.8827,-87.6233
+STR-DUB-001,Mybrew Grafton St,Dublin,Leinster,IE,53.3419,-6.2595

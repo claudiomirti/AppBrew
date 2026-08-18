@@ -1,0 +1,21 @@
+customer_id,name,tier,tier_points,city,country,opted_in,last_visit
+C-000001,Liam Carter,Gold,1240,London,UK,true,2026-07-06
+C-000002,Priya Sharma,Silver,680,London,UK,true,2026-06-02
+C-000003,James O'Brien,Green,120,London,UK,true,2026-07-05
+C-000004,Fatima Al-Hassan,Silver,445,Manchester,UK,true,2026-05-28
+C-000005,Chloe Williams,Gold,1890,London,UK,false,2026-07-07
+C-000006,Marcus Johnson,Green,55,Los Angeles,US,true,2026-07-04
+C-000007,Emily Zhang,Silver,490,San Francisco,US,true,2026-06-10
+C-000008,Noah Patel,Gold,2100,New York,US,true,2026-07-06
+C-000009,Sofia Reyes,Green,200,London,UK,true,2026-07-01
+C-000010,Oliver Kim,Silver,710,Seattle,US,true,2026-06-15
+C-000011,Aisha Okafor,Gold,1520,London,UK,true,2026-07-06
+C-000012,David Chen,Silver,620,London,UK,true,2026-05-15
+C-000013,Hannah Murphy,Green,85,Dublin,IE,true,2026-07-03
+C-000014,Ryan Thompson,Gold,1680,Chicago,US,true,2026-07-05
+C-000015,Mei Lin Wu,Silver,510,London,UK,true,2026-06-08
+C-000016,Jack Robinson,Green,30,London,UK,true,2026-04-20
+C-000017,Amara Diallo,Silver,490,Paris,FR,true,2026-06-25
+C-000018,Lucas Martin,Gold,2340,London,UK,true,2026-07-07
+C-000019,Isabella Rossi,Green,150,Milan,IT,true,2026-07-02
+C-000020,Ben Nguyen,Silver,700,London,UK,true,2026-06-01

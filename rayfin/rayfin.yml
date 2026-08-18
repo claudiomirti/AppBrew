@@ -14,6 +14,7 @@ services:
     allowedRedirectUris:
       - http://localhost:5173
       - https://palm-dune-d69d5b5375-westeurope.webapp.fabricapps.net
+      - https://local-hedge-3679f21bce-swedencentral.webapp.fabricapps.net
     fabric:
       enabled: true
   data:

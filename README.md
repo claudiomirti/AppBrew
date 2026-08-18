@@ -92,6 +92,27 @@ The redirect URI `/streams` and the popup target `/blank.html` must both be
 registered on the Entra app registration, and the host must serve `index.html`
 for deep links.
 
+`rayfin up --workspace-id {guid} --tenant {guid} -y` targets a specific workspace and
+adds a keyed entry to `rayfin/.deployments.json` alongside any existing one, so the same
+repo can drive several deployments. The `db apply` step fails with
+`TS18003: No inputs were found in rayfin/tsconfig.json` — that is expected and harmless:
+the app declares no Rayfin entities and talks to Fabric directly. The static deploy still
+succeeds.
+
+### Deployments
+
+| Workspace | Tenant | URL |
+| --- | --- | --- |
+| BrewP `4bf66efa-…` | `a7bb15d9-…` | `palm-dune-d69d5b5375-westeurope.webapp.fabricapps.net` |
+| AppBrew `2bab207d-47d5-46d7-8884-e7c02f88e46d` | `82d8c35c-…` | `local-hedge-3679f21bce-swedencentral.webapp.fabricapps.net` |
+
+AppBrew is a full rebuild of the demo in a second tenant from this repo alone — see
+*Migrating to another tenant* in [`fabric/README.md`](fabric/README.md) for the
+step-by-step, including the traps (the Kusto cluster hostname is baked into definitions
+and is not a GUID; the Direct Lake model must be reframed after the lakehouse is loaded;
+`Mybrew Campaign Analytics` is a push dataset and has to be recreated by hand).
+
+
 ## Fabric side
 
 Notebooks in the Fabric workspace generate the data:

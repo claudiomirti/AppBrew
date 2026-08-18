@@ -39,7 +39,17 @@ lakehouses. The `AppBackend/AppBrew` item is the Rayfin deployment target and is
 by `rayfin/rayfin.yml` in the repo root.
 
 **Data is not included** — only definitions. Lakehouse tables are recreated by running
-`Notebook/01_Load_Demo_Data`.
+`Notebook/01_Load_Demo_Data`, which reads the CSVs in [`seed-data/`](seed-data/) from the
+lakehouse's `Files/demo-data/` folder (see *Migrating to another tenant* below).
+
+## seed-data/
+
+The eight CSVs `01_Load_Demo_Data` ingests: `dim_campaign`, `dim_customer`, `dim_product`,
+`dim_store`, `dim_weather`, `fact_impression`, `fact_transaction`, `identity_match`.
+They live in the lakehouse under `Files/demo-data/` and are **not** part of any item
+definition, so a definitions-only import leaves notebook 01 failing with
+`System_Cancelled_Session_Statements_Failed` until they are uploaded.
+
 
 ## Notebooks
 
@@ -86,6 +96,88 @@ GUIDs first. Notably:
 - `Report/BrewDash/definition.pbir` pins semantic model `dfd499af-…`.
 - The ontology's bindings point at `mybrew_lakehouse`, **not** at `MybrewOnto_lh`
   (which is empty — see below).
+
+## Migrating to another tenant
+
+Done once already (BrewP → AppBrew). The order below matters; each step depends on the last.
+
+### 1. Build a find/replace map
+
+Everything absolute must be rewritten in every part payload **before** upload. The map is
+not GUIDs only — the **Eventhouse's Kusto cluster hostname is also baked in**, and it is
+not a GUID, so a GUID-only sweep silently misses it. It appears in notebooks 03 and 04,
+both KQL dashboards and three ontology data bindings, and leaves the streaming notebooks
+writing at the *old* tenant's Eventhouse (they fail, or worse, appear to run while the new
+tables stay empty).
+
+| What | Source value |
+|---|---|
+| Workspace | `4bf66efa-94d7-4753-a5c4-70c79358bbd6` |
+| Lakehouse `mybrew_lakehouse` | `4084ce1f-b97f-4949-81a9-755f32d1f5df` |
+| Eventhouse | `66527961-2eef-46f3-abcc-f5c01a345f0d` |
+| KQL database | `d8446837-44f8-4c1a-bff6-474de9e54fcd` |
+| SemanticModel *Campaign Analytics* | `dfd499af-2553-478d-896d-57de4ffa00bc` |
+| SemanticModel *Marketing Model* | `ba620ccd-79c6-474e-902a-5fd423250fc8` |
+| Ontology | `6b19ceb0-32d4-411e-8221-cf2940fc07ca` |
+| **Kusto cluster host** | `trd-t1s1uap7p3xkuvdx9s.z8` |
+
+### 2. Import order
+
+1. **Lakehouse** and **Eventhouse** — create *plain*, with no `definition`; neither has a
+   definition API. The Eventhouse auto-creates its KQLDatabase, the lakehouse its
+   SQLEndpoint, and the Ontology (step 6) its own lakehouse plus graph model.
+2. **Eventhouse tables** — do not import the KQLDatabase definition. POST the four
+   `.create-merge table` commands from `KQLDatabase/mybrew_eventhouse` to
+   `{clusterUri}/v1/rest/mgmt` instead.
+3. **Seed data** — upload `seed-data/*.csv` to `Files/demo-data/` via the OneLake DFS
+   three-call dance (`PUT ?resource=file` → `PATCH ?action=append&position=0` →
+   `PATCH ?action=flush&position={length}`, token resource `https://storage.azure.com`,
+   header `x-ms-version: 2021-10-04`).
+4. **Notebooks**, then run `01_Load_Demo_Data` and confirm all 8 delta tables exist.
+5. **Semantic models** — see the push-dataset note below.
+6. **Report**, **eventstreams**, **KQL dashboards**, **ontology**, **data agents**.
+
+### 3. Reframe the Direct Lake model
+
+`Mybrew Marketing Model` is Direct Lake. If it is imported before the lakehouse has tables
+the binding never resolves and every `EVALUATE` answers *"Cannot find table
+'fact_impression'"* — which makes **AgentBrew look broken while the agent itself is fine**.
+Re-applying the definition does **not** fix it. Force a reframe:
+
+```
+POST https://api.powerbi.com/v1.0/myorg/groups/{ws}/datasets/{id}/refreshes  {"type":"full"}
+```
+
+It returns `refreshType: DirectLakeFraming` and completes in well under a second. Verify
+with `executeQueries` before blaming the agent.
+
+### 4. `Mybrew Campaign Analytics` cannot be imported
+
+It is a Power BI **push dataset** (`dataSource: RowDataSource`, `annotation RestaTableId`,
+`defaultMode: directQuery`). The items API rejects it with *"Import from JSON supported for
+V3 models only"*. No notebook creates it either — it was built by hand — so it must be
+recreated explicitly on every migration:
+
+```
+POST https://api.powerbi.com/v1.0/myorg/groups/{ws}/datasets?defaultRetentionPolicy=None
+{"name":..., "defaultMode":"Push", "tables":[{"name":..., "columns":[{"name","dataType"}], "measures":[{"name","expression"}]}]}
+POST .../datasets/{id}/tables/{table}/rows   {"rows":[…]}
+```
+
+Pull the rows from the source with `executeQueries`; it returns column names wrapped as
+`Table[column]`, so strip the wrapper before pushing.
+
+### 5. Gotchas
+
+- Exclude `.platform` from `parts` when **creating**; `updateDefinition` needs it only with
+  `updateMetadata=True`, so call `updateDefinition` **without** that flag and skip the file.
+- An `updateDefinition` LRO ending in `400 OperationHasNoResult` is **success** — the
+  operation simply has no result body.
+- `format: "ipynb"` applies to `Notebook` and nothing else.
+- Also outside `fabric/`: `frontend/.env.local` (all `VITE_*` IDs, the Kusto cluster URI and
+  the data agent ID) and a fresh Entra app registration with Power BI `Item.Execute.All` +
+  `Item.Read.All` and Azure Data Explorer `user_impersonation`, admin-consented.
+
 
 ## Known issues in these definitions
 

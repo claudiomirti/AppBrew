@@ -1,0 +1,11 @@
+campaign_id,campaign_name,channel,publisher,segment_target,start_date,end_date,budget_gbp
+CMP-WW-2026,Winter Warmth,Digital,Meta,All loyalty,2026-11-01,2026-12-31,2400000
+CMP-WW-2026-G,Winter Warmth,Digital,Google,All loyalty,2026-11-01,2026-12-31,1800000
+CMP-WW-2026-A,Winter Warmth,Digital,Amazon,All loyalty,2026-11-01,2026-12-31,600000
+CMP-WB-2026,Win-Back Q3,Email + Push,Direct,Lapsed 30d+,2026-07-01,2026-09-30,450000
+CMP-TN-2026,Tier Nudge,Push,Direct,Silver near Gold,2026-07-01,2026-12-31,180000
+CMP-SS-2026,Summer Sips,Digital,Meta,18-34,2026-06-01,2026-08-31,1200000
+CMP-SS-2026-N,Summer Sips,Print,NYT,35-54 affluent,2026-06-01,2026-08-31,300000
+CMP-HL-2026,Holiday Cheer,Digital,Meta,All loyalty,2026-12-01,2026-12-25,900000
+CMP-HL-2026-G,Holiday Cheer,Digital,Google,All loyalty,2026-12-01,2026-12-25,750000
+CMP-NY-2026,New Year New Brew,Digital,Amazon,Lapsed 60d+,2026-01-01,2026-01-31,350000

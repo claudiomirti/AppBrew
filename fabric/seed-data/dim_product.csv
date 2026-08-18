@@ -1,0 +1,16 @@
+product_id,product_name,category,price_gbp,is_seasonal,serve_temp
+PRD-001,Hazelnut Flat White,Espresso,4.75,false,Hot
+PRD-002,Iced Caramel Macchiato,Espresso,5.25,false,Cold
+PRD-003,Pumpkin Spice Latte,Seasonal,5.50,true,Hot
+PRD-004,Mango Dragonfruit Refresher,Refreshers,4.95,false,Cold
+PRD-005,Chai Tea Latte,Tea,4.50,false,Hot
+PRD-006,Toffee Nut Crunch,Seasonal,5.50,true,Hot
+PRD-007,Cold Brew Nitro,Cold Brew,5.00,false,Cold
+PRD-008,Matcha Oat Latte,Espresso,5.25,false,Hot
+PRD-009,Vanilla Sweet Cream Cold Brew,Cold Brew,5.25,false,Cold
+PRD-010,Gingerbread Latte,Seasonal,5.50,true,Hot
+PRD-011,Americano,Espresso,3.50,false,Hot
+PRD-012,Iced Shaken Espresso,Espresso,4.75,false,Cold
+PRD-013,London Fog Tea Latte,Tea,4.50,false,Hot
+PRD-014,Strawberry Acai Refresher,Refreshers,4.95,false,Cold
+PRD-015,Caramel Brulee Latte,Seasonal,5.75,true,Hot
