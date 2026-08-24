@@ -85,6 +85,27 @@ function clearRedirectGuard(): void {
 let app: PublicClientApplication | null = null
 let initialising: Promise<PublicClientApplication> | null = null
 
+/**
+ * The account to use, out of everything MSAL has cached.
+ *
+ * Taking `getAllAccounts()[0]` is only safe when there is exactly one. A browser signed in to
+ * several tenants caches several, and picking the wrong one produces AADSTS16000 on every
+ * silent attempt — the token can never be issued for it, but the ladder keeps retrying. When
+ * LOGIN_HINT names the account this environment expects, honour it.
+ */
+function pickAccount(instance: PublicClientApplication): AccountInfo | null {
+  const active = instance.getActiveAccount()
+  const all = instance.getAllAccounts()
+  if (!LOGIN_HINT) return active ?? all[0] ?? null
+  const wanted = LOGIN_HINT.toLowerCase()
+  const match = all.find(a => a.username?.toLowerCase() === wanted)
+  if (match) return match
+  // The hinted account is not cached. An account that contradicts the hint is worse than
+  // none: it sends the ladder down a path that cannot succeed, whereas returning null goes
+  // straight to SSO where the hint is applied.
+  return null
+}
+
 /** Silent-auth failures, in order, surfaced in the page's diagnostic line. */
 const authTrail: string[] = []
 function noteAuth(detail: string): void {
@@ -155,7 +176,7 @@ async function getApp(): Promise<PublicClientApplication> {
 
 export async function getAccount(): Promise<AccountInfo | null> {
   const instance = await getApp()
-  return instance.getActiveAccount() ?? instance.getAllAccounts()[0] ?? null
+  return pickAccount(instance)
 }
 
 /**
@@ -167,7 +188,7 @@ export async function getAccount(): Promise<AccountInfo | null> {
  */
 export async function getTokenSilent(scopes: string[]): Promise<string> {
   const instance = await getApp()
-  const account = instance.getActiveAccount() ?? instance.getAllAccounts()[0]
+  const account = pickAccount(instance)
 
   if (account) {
     try {
@@ -194,7 +215,7 @@ export function getKustoTokenSilent(): Promise<string> {
  */
 export async function getTokenQuiet(scopes: string[]): Promise<string> {
   const instance = await getApp()
-  const account = instance.getActiveAccount() ?? instance.getAllAccounts()[0]
+  const account = pickAccount(instance)
   if (!account) throw new SignInRequiredError('Sign in to query Fabric.')
   try {
     const result = await instance.acquireTokenSilent({ scopes, account })
@@ -278,7 +299,12 @@ export function describeAuthError(err: unknown): string {
  */
 export async function signIn(): Promise<AccountInfo | null> {
   const instance = await getApp()
-  const request = { scopes: [KUSTO_SCOPE] }
+  // With a hint, go straight to the account this environment expects. Without one, force the
+  // account picker: an interactive sign-in that silently reuses whichever session Entra
+  // happens to prefer is exactly how the wrong identity gets cached in the first place.
+  const request = LOGIN_HINT
+    ? { scopes: [KUSTO_SCOPE], loginHint: LOGIN_HINT }
+    : { scopes: [KUSTO_SCOPE], prompt: 'select_account' as const }
 
   if (window.self !== window.top) {
     window.open(window.location.href, '_blank', 'noopener')
@@ -310,7 +336,9 @@ export async function signIn(): Promise<AccountInfo | null> {
 
 export async function signOut(): Promise<void> {
   const instance = await getApp()
-  const account = instance.getAllAccounts()[0]
-  if (account) await instance.clearCache({ account })
+  // Clear every cached account, not just the first. The bug this guards against is a browser
+  // holding several identities, so leaving the others behind would put the app straight back
+  // into the ambiguous state that made signing out necessary.
+  for (const account of instance.getAllAccounts()) await instance.clearCache({ account })
   clearRedirectGuard()
 }

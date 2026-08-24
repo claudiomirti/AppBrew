@@ -67,7 +67,7 @@ All settings live in `frontend/.env.local` (gitignored — see `.env.example`):
 | --- | --- |
 | `VITE_KUSTO_CLUSTER` / `VITE_KUSTO_DATABASE` | Eventhouse to query. |
 | `VITE_ENTRA_CLIENT_ID` / `VITE_ENTRA_TENANT_ID` | SPA app registration, used by deployed builds only. |
-| `VITE_ENTRA_LOGIN_HINT` | Optional — disambiguates silent SSO when several accounts are signed in. |
+| `VITE_ENTRA_LOGIN_HINT` | Optional — disambiguates silent SSO when several accounts are signed in. Set it whenever the demo machine is signed in to more than one tenant, or silent sign-in fails with `AADSTS16000`. |
 | `VITE_FABRIC_WORKSPACE_ID` / `VITE_FABRIC_AGENT_ID` | Fabric data agent behind the Business Context page. Both default to the demo workspace's ids. |
 | `VITE_WEBIQ_KEY` | Microsoft Web IQ key for the WW IQ page. |
 
