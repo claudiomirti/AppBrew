@@ -123,6 +123,102 @@ body {
   grid-column: 1 / -1;
 }
 
+/* ---- Geo Command Center ---- */
+.geo-map-card {
+  height: 480px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.geo-map {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: #d8dde7;
+}
+
+.geo-map .leaflet-tile {
+  /* Slightly mute the bright road map so saturated data points remain dominant. */
+  filter: saturate(0.65) brightness(0.9) contrast(1.08);
+}
+
+.geo-map .leaflet-interactive {
+  filter: drop-shadow(0 1px 2px rgb(13 16 38 / 75%));
+}
+
+.geo-map .leaflet-control-zoom a {
+  color: #11162b;
+}
+
+.geo-popup .leaflet-popup-content-wrapper,
+.geo-popup .leaflet-popup-tip {
+  color: #f7f8ff;
+  background: #11162b;
+}
+
+.geo-popup .leaflet-popup-content-wrapper {
+  border: 1px solid #465078;
+  box-shadow: 0 10px 28px rgb(0 0 0 / 45%);
+}
+
+.geo-popup .leaflet-popup-content {
+  margin: 14px 16px;
+}
+
+.geo-popup .leaflet-popup-close-button {
+  color: #dce2ff !important;
+}
+
+.geo-popup .leaflet-popup-close-button:hover {
+  color: #fff !important;
+}
+
+.geo-popup-content {
+  min-width: 220px;
+  font-family: "Segoe UI", sans-serif;
+  color: #f7f8ff;
+}
+
+.geo-popup-title {
+  font-size: 14px;
+  color: #fff;
+}
+
+.geo-popup-city {
+  color: #b7c0df;
+}
+
+.geo-popup-content hr {
+  margin: 8px 0;
+  border: 0;
+  border-top: 1px solid #465078;
+}
+
+.geo-popup-content table {
+  width: 100%;
+  font-size: 12px;
+  color: #f7f8ff;
+}
+
+.geo-popup-content td:first-child {
+  color: #bdc6e4;
+  padding-right: 12px;
+}
+
+.geo-popup-content td:last-child {
+  color: #fff;
+}
+
+.geo-popup-trigger {
+  margin-top: 9px;
+  padding: 7px 9px;
+  border: 1px solid #4ecdc4;
+  border-radius: 5px;
+  color: #fff;
+  background: #173a43;
+  font-size: 12px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

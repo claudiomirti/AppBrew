@@ -16,6 +16,6 @@
     "@microsoft/rayfin-data": "^1.33.2"
   },
   "devDependencies": {
-    "@microsoft/rayfin-cli": "^1.23.0"
+    "@microsoft/rayfin-cli": "^1.36.2"
   }
 }

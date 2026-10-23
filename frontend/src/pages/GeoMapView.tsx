@@ -117,16 +117,16 @@ export default function GeoMapView() {
         </div>
       </div>
 
-      <div className="chart-card full-width" style={{ padding: 0, overflow: 'hidden', height: 480 }}>
+      <div className="chart-card full-width geo-map-card">
         <MapContainer
           center={[40, -20]}
           zoom={3}
-          style={{ height: '100%', width: '100%', borderRadius: 12 }}
+          className="geo-map"
           scrollWheelZoom={true}
         >
           <TileLayer
-            attribution='&copy; <a href="https://carto.com">CARTO</a>'
-            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <FitBounds points={data} />
           {data.map(point => (
@@ -135,18 +135,19 @@ export default function GeoMapView() {
               center={[point.lat, point.lng]}
               radius={getMarkerRadius(point)}
               pathOptions={{
-                color: getMarkerColor(point),
+                color: '#0d1026',
                 fillColor: getMarkerColor(point),
-                fillOpacity: 0.7,
-                weight: 2,
+                fillOpacity: 0.95,
+                opacity: 1,
+                weight: 3,
               }}
             >
-              <Popup>
-                <div style={{ fontFamily: 'Segoe UI', minWidth: 200 }}>
-                  <strong style={{ fontSize: 14 }}>☕ {point.store}</strong>
-                  <br /><span style={{ color: '#666' }}>{point.city}</span>
-                  <hr style={{ margin: '8px 0', border: 'none', borderTop: '1px solid #eee' }} />
-                  <table style={{ fontSize: 12, width: '100%' }}>
+              <Popup className="geo-popup">
+                <div className="geo-popup-content">
+                  <strong className="geo-popup-title">☕ {point.store}</strong>
+                  <br /><span className="geo-popup-city">{point.city}</span>
+                  <hr />
+                  <table>
                     <tbody>
                       <tr><td>💰 Revenue</td><td style={{ textAlign: 'right', fontWeight: 600 }}>{formatCurrency(point.revenue)}</td></tr>
                       <tr><td>🧾 Transactions</td><td style={{ textAlign: 'right' }}>{point.transactions}</td></tr>
@@ -156,7 +157,7 @@ export default function GeoMapView() {
                     </tbody>
                   </table>
                   {point.trigger && (
-                    <div style={{ marginTop: 8, padding: '6px 8px', background: '#f0f9ff', borderRadius: 4, fontSize: 12 }}>
+                    <div className="geo-popup-trigger">
                       ⚡ <strong>{point.trigger}</strong> — {point.triggerFired.toLocaleString()} fired
                     </div>
                   )}
